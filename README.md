@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Izan Villarejo -- Portfolio
 
-## Getting Started
+Portfolio personal desarrollado con Next.js para presentar proyectos de
+Backend e Inteligencia Artificial aplicada en producción.
 
-First, run the development server:
+------------------------------------------------------------------------
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Descripción
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Este proyecto representa mi enfoque como ingeniero orientado a
+producción: diseñar e integrar sistemas backend que incorporan
+Inteligencia Artificial en entornos reales.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+El objetivo del portfolio no es únicamente mostrar proyectos, sino
+reflejar una forma de trabajar basada en arquitectura limpia,
+modularidad y automatización de procesos.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+------------------------------------------------------------------------
 
-## Learn More
+## Stack Tecnológico
 
-To learn more about Next.js, take a look at the following resources:
+-   Next.js (App Router)
+-   TypeScript
+-   TailwindCSS
+-   Framer Motion
+-   Despliegue en Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+------------------------------------------------------------------------
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Enfoque Técnico
 
-## Deploy on Vercel
+Los proyectos presentados están centrados en:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+-   Integración de modelos de IA dentro de arquitecturas backend reales
+-   Diseño y desarrollo de APIs robustas
+-   Automatización de procesos empresariales
+-   Diseño de pipelines de datos reproducibles
+-   Sistemas modulares y dockerizados orientados a producción
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+------------------------------------------------------------------------
+
+## Estructura del Proyecto
+
+    app/
+    components/
+    public/
+
+Arquitectura basada en componentes reutilizables y organización
+escalable.
+
+------------------------------------------------------------------------
+
+## Instalación Local
+
+Clonar el repositorio:
+
+    git clone https://github.com/Izanvz/portfolio.git
+    cd portfolio
+
+Instalar dependencias:
+
+    npm install
+
+Ejecutar en entorno local:
+
+    npm run dev
+
+Abrir en navegador:
+
+    http://localhost:3000
+
+------------------------------------------------------------------------
+
+## Deploy
+
+Proyecto desplegado mediante Vercel.
+
+------------------------------------------------------------------------
+
+## Autor
+
+Izan Villarejo\
+Backend + IA aplicada en producción
+
+LinkedIn: https://www.linkedin.com/in/izan-villarejo-ai/\
+GitHub: https://github.com/Izanvz
