@@ -47,7 +47,5 @@ node_modules
 .env.development
 .env.production
 
-# local agent/tooling state
-.claude/
-.claude-flow/
+# local tooling state
 .swarm/
