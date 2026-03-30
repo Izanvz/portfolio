@@ -1,86 +1,85 @@
-# Izan Villarejo -- Portfolio
+# Portfolio — Izan Villarejo Adames
 
-Portfolio personal desarrollado con Next.js para presentar proyectos de
-Backend e Inteligencia Artificial aplicada en producción.
+Portfolio personal one-page construido con Next.js 16 y App Router. Presenta proyectos de backend e IA aplicada, experiencia profesional y stack técnico.
 
-------------------------------------------------------------------------
+Desplegado en: [portfolio-izanv.vercel.app](https://portfolio-izanv.vercel.app)
 
-## Descripción
+---
 
-Este proyecto representa mi enfoque como ingeniero orientado a
-producción: diseñar e integrar sistemas backend que incorporan
-Inteligencia Artificial en entornos reales.
+## Stack
 
-El objetivo del portfolio no es únicamente mostrar proyectos, sino
-reflejar una forma de trabajar basada en arquitectura limpia,
-modularidad y automatización de procesos.
+| Capa | Tecnología |
+|---|---|
+| Framework | Next.js 16.1.6 (App Router) |
+| UI | React 19 + TypeScript 5 |
+| Estilos | Tailwind CSS v4 (OKLCH) |
+| Animaciones | Framer Motion 12 + GSAP 3 |
+| Icons | Lucide React |
+| Fuentes | Geist Sans + Geist Mono |
+| Deploy | Vercel |
 
-------------------------------------------------------------------------
+---
 
-## Stack Tecnológico
+## Estructura
 
--   Next.js (App Router)
--   TypeScript
--   TailwindCSS
--   Framer Motion
--   Despliegue en Vercel
+```
+izan-portfolio/
+├── app/
+│   ├── layout.tsx        # Layout raíz — metadata, fuentes, JSON-LD schema
+│   ├── page.tsx          # Página única — orquesta todas las secciones
+│   └── globals.css       # Estilos globales con Tailwind v4
+│
+├── components/
+│   ├── Navbar.tsx        # Navegación fija con menú mobile animado
+│   ├── Hero.tsx          # Hero con animaciones GSAP y spotlight interactivo
+│   ├── ImpactMetrics.tsx # Grid de métricas profesionales
+│   ├── About.tsx         # Sobre mí con filosofía y pilares
+│   ├── Projects.tsx      # Galería de proyectos con cards
+│   ├── Experience.tsx    # Experiencia, educación y certificaciones
+│   ├── Stack.tsx         # Stack técnico organizado por categorías
+│   ├── Contact.tsx       # Contacto con email, ubicación y redes
+│   ├── FadeIn.tsx        # Wrapper de animaciones scroll (GSAP + ScrollTrigger)
+│   └── Section.tsx       # Wrapper de sección con eyebrow, título y subtítulo
+│
+└── public/               # Assets estáticos
+```
 
-------------------------------------------------------------------------
+---
 
-## Enfoque Técnico
+## Secciones
 
-Los proyectos presentados están centrados en:
+- **Hero** — Presentación con stats, CTAs y preview de MeetingAgent
+- **About** — Trayectoria, filosofía y pilares de trabajo
+- **Projects** — MeetingAgent, VisuCheck, BTC-Pred, AudioSmart
+- **Experience** — TESI (2024–2025), IES Jaume II el Just, certificaciones Stanford
+- **Stack** — 5 categorías: Backend, Datos, ML/AI, DevOps, Interfaces
+- **Contact** — Email, ubicación, GitHub, LinkedIn
 
--   Integración de modelos de IA dentro de arquitecturas backend reales
--   Diseño y desarrollo de APIs robustas
--   Automatización de procesos empresariales
--   Diseño de pipelines de datos reproducibles
--   Sistemas modulares y dockerizados orientados a producción
+---
 
-------------------------------------------------------------------------
+## Lanzar en local
 
-## Estructura del Proyecto
+```bash
+git clone https://github.com/Izanvz/portfolio.git
+cd portfolio
+npm install
+npm run dev
+# http://localhost:3000
+```
 
-    app/
-    components/
-    public/
+```bash
+npm run dev      # Desarrollo
+npm run build    # Build de producción
+npm start        # Servidor de producción (requiere build previo)
+npm run lint     # ESLint
+```
 
-Arquitectura basada en componentes reutilizables y organización
-escalable.
-
-------------------------------------------------------------------------
-
-## Instalación Local
-
-Clonar el repositorio:
-
-    git clone https://github.com/Izanvz/portfolio.git
-    cd portfolio
-
-Instalar dependencias:
-
-    npm install
-
-Ejecutar en entorno local:
-
-    npm run dev
-
-Abrir en navegador:
-
-    http://localhost:3000
-
-------------------------------------------------------------------------
-
-## Deploy
-
-Proyecto desplegado mediante Vercel.
-
-------------------------------------------------------------------------
+---
 
 ## Autor
 
-Izan Villarejo\
-Backend + IA aplicada en producción
+**Izan Villarejo Adames** — Backend Developer & AI Engineer
 
-LinkedIn: https://www.linkedin.com/in/izan-villarejo-ai/\
-GitHub: https://github.com/Izanvz
+- Portfolio: [portfolio-izanv.vercel.app](https://portfolio-izanv.vercel.app/)
+- LinkedIn: [linkedin.com/in/izan-villarejo-ai](https://www.linkedin.com/in/izan-villarejo-ai/)
+- GitHub: [github.com/Izanvz](https://github.com/Izanvz)
