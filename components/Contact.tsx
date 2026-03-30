@@ -1,155 +1,147 @@
 "use client";
 
+import { useState } from "react";
+import { motion } from "framer-motion";
 import FadeIn from "@/components/FadeIn";
 import Section from "@/components/Section";
-import { motion } from "framer-motion";
+
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+const EMAIL = "izan.villarejo.ai@gmail.com";
+
+const summary = [
+  { k: "Qué hago", v: "Integro modelos de IA en arquitecturas backend mantenibles y listas para producción." },
+  { k: "En qué soy fuerte", v: "Diseño de pipelines, APIs robustas con FastAPI y automatización de procesos empresariales." },
+  { k: "Tipo de proyectos", v: "Audio, NLP, computer vision, agentes y modelos predictivos conectados a producto." },
+  { k: "Disponibilidad", v: "España remoto · Valencia/Safor híbrido o presencial" },
+];
 
 export default function Contact() {
-  const email = "izan.villarejo.ai@gmail.com";
+  const [copied, setCopied] = useState(false);
+
+  async function handleCopy() {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {}
+  }
 
   return (
     <Section
       id="contact"
-      title="Contacto"
-      subtitle="Si tu proyecto necesita backend sólido o integración real de IA, hablemos."
+      eyebrow="Contacto"
+      title="Trabajemos juntos"
+      subtitle="Si tu producto necesita backend sólido o integración real de IA, hablemos."
     >
-      <div className="grid lg:grid-cols-12 gap-10 items-start">
-
-        {/* Columna izquierda */}
+      <div className="grid lg:grid-cols-12 gap-6 items-start">
         <div className="lg:col-span-7">
           <FadeIn>
-            <div className="relative overflow-hidden rounded-2xl border border-neutral-900 bg-neutral-900/25 p-8">
+            <div className="relative overflow-hidden p-px rounded-[26px] bg-gradient-to-b from-ink-700/50 to-transparent">
+              <div className="rounded-[25px] bg-ink-925 p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+                <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-48 h-32 bg-amber/[0.06] rounded-full blur-3xl pointer-events-none" />
 
-              <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-white/10 blur-3xl pointer-events-none" />
+                <h3 className="text-xl font-semibold text-ink-100 relative">
+                  Respondo rápido por email
+                </h3>
+                <p className="mt-3 text-ink-400 leading-relaxed max-w-xl">
+                  Para entrevistas, colaboración técnica o proyectos donde haya que integrar IA en backend,
+                  envíame contexto y respondo con claridad.
+                </p>
 
-              <h3 className="text-xl font-semibold text-neutral-100">
-                Respondo rápido por email
-              </h3>
+                <div className="mt-8 grid sm:grid-cols-2 gap-4">
+                  <div className="p-px rounded-[18px] bg-gradient-to-b from-amber/20 to-transparent">
+                    <div className="rounded-[17px] bg-ink-950 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
+                      <p className="text-[10px] font-mono uppercase tracking-widest text-ink-600">Email</p>
+                      <p className="mt-2 text-ink-100 font-medium text-sm break-all">{EMAIL}</p>
+                      <div className="mt-4 flex gap-2.5">
+                        <a
+                          href={`mailto:${EMAIL}`}
+                          aria-label="Enviar email a Izan"
+                          className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber text-ink-950 font-medium text-sm hover:bg-amber-bright transition-colors"
+                        >
+                          Enviar email
+                          <span className="w-5 h-5 rounded-full bg-ink-950/15 flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">
+                            →
+                          </span>
+                        </a>
+                        <button
+                          onClick={handleCopy}
+                          aria-label="Copiar dirección de email"
+                          className="px-4 py-2 rounded-full border border-ink-700/60 hover:border-ink-500 transition-colors text-ink-300 text-sm"
+                        >
+                          {copied ? "✓ Copiado" : "Copiar"}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
 
-              <p className="mt-3 text-neutral-400 max-w-xl">
-                Si es para entrevistas, colaboración técnica o un proyecto donde haya que integrar IA en backend,
-                envíame contexto y te respondo con claridad.
-              </p>
-
-              <div className="mt-8 grid sm:grid-cols-2 gap-4">
-
-                <div className="rounded-2xl border border-neutral-900 bg-neutral-950/40 p-5">
-                  <p className="text-xs text-neutral-500">Email</p>
-                  <p className="mt-2 text-neutral-100 font-medium break-all">
-                    {email}
-                  </p>
-
-                  <div className="mt-4 flex gap-3">
-                    <a
-                      href={`mailto:${email}`}
-                      className="inline-flex items-center justify-center px-4 py-2 rounded-xl bg-white text-black font-medium hover:opacity-95 transition"
-                    >
-                      Enviar email
-                    </a>
-
-                    <button
-                      onClick={async () => {
-                        try {
-                          await navigator.clipboard.writeText(email);
-                        } catch {}
-                      }}
-                      className="inline-flex items-center justify-center px-4 py-2 rounded-xl border border-neutral-800 hover:border-neutral-600 transition text-neutral-200"
-                    >
-                      Copiar
-                    </button>
+                  <div className="p-px rounded-[18px] bg-gradient-to-b from-ink-700/40 to-transparent">
+                    <div className="rounded-[17px] bg-ink-950 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
+                      <p className="text-[10px] font-mono uppercase tracking-widest text-ink-600">Ubicación</p>
+                      <p className="mt-2 text-ink-100 font-medium">Gandía, Valencia</p>
+                      <p className="mt-2 text-sm text-ink-500">
+                        España remoto · Valencia/Safor híbrido o presencial
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="rounded-2xl border border-neutral-900 bg-neutral-950/40 p-5">
-                  <p className="text-xs text-neutral-500">Ubicación</p>
-                  <p className="mt-2 text-neutral-100 font-medium">
-                    Gandia, Valencia
-                  </p>
-                  <p className="mt-2 text-sm text-neutral-400">
-                    Remoto en España · Híbrido en Valencia/Safor
-                  </p>
+                <div className="mt-7 flex gap-3">
+                  <a
+                    href="https://github.com/Izanvz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Perfil de GitHub de Izan Villarejo"
+                    className="px-5 py-2.5 rounded-full border border-ink-700/60 hover:border-ink-500 transition-colors text-ink-300 hover:text-ink-100 text-sm"
+                  >
+                    GitHub ↗
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/izan-villarejo-ai/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Perfil de LinkedIn de Izan Villarejo"
+                    className="px-5 py-2.5 rounded-full border border-ink-700/60 hover:border-ink-500 transition-colors text-ink-300 hover:text-ink-100 text-sm"
+                  >
+                    LinkedIn ↗
+                  </a>
                 </div>
-
               </div>
-
-              <div className="mt-8 flex gap-3">
-                <a
-                  href="https://github.com/Izanvz"
-                  target="_blank"
-                  className="px-4 py-2 rounded-xl border border-neutral-800 hover:border-neutral-600 transition text-neutral-200"
-                >
-                  GitHub ↗
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/izan-villarejo-ai/"
-                  target="_blank"
-                  className="px-4 py-2 rounded-xl border border-neutral-800 hover:border-neutral-600 transition text-neutral-200"
-                >
-                  LinkedIn ↗
-                </a>
-              </div>
-
             </div>
           </FadeIn>
         </div>
 
-        {/* Columna derecha */}
         <div className="lg:col-span-5">
           <FadeIn delay={0.1}>
-            <motion.div
-              whileHover={{ y: -4 }}
-              transition={{ duration: 0.2 }}
-              className="rounded-2xl border border-neutral-900 bg-neutral-950/50 p-8"
-            >
-              <h3 className="text-lg font-semibold text-neutral-100">
-                En 30 segundos
-              </h3>
+            <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.3, ease: EASE }}>
+              <div className="p-px rounded-[26px] bg-gradient-to-b from-amber/25 to-amber/5">
+                <div className="rounded-[25px] bg-ink-925 p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_40px_oklch(75%_0.108_170_/_0.08)]">
+                  <h3 className="text-lg font-semibold text-ink-100">En 30 segundos</h3>
 
-              <div className="mt-6 space-y-5 text-neutral-300">
+                  <div className="mt-6 space-y-5">
+                    {summary.map((item) => (
+                      <div key={item.k}>
+                        <p className="text-[10px] font-mono uppercase tracking-widest text-ink-600">{item.k}</p>
+                        <p className="mt-1.5 text-sm text-ink-300 leading-relaxed">{item.v}</p>
+                      </div>
+                    ))}
+                  </div>
 
-                <div>
-                  <p className="text-xs text-neutral-500">Qué hago</p>
-                  <p className="mt-1">
-                    Integro modelos de IA dentro de arquitecturas backend mantenibles y listas para producción.
-                  </p>
+                  <a
+                    href={`mailto:${EMAIL}`}
+                    aria-label="Contactar a Izan por email"
+                    className="group mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-amber text-ink-950 px-6 py-3 font-medium hover:bg-amber-bright transition-colors"
+                  >
+                    Contactar
+                    <span className="w-6 h-6 rounded-full bg-ink-950/15 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-px transition-transform">
+                      →
+                    </span>
+                  </a>
                 </div>
-
-                <div>
-                  <p className="text-xs text-neutral-500">En qué soy fuerte</p>
-                  <p className="mt-1">
-                    Diseño de pipelines, APIs robustas con FastAPI y automatización de procesos empresariales.
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-xs text-neutral-500">Tipo de proyectos</p>
-                  <p className="mt-1">
-                    Audio (transcripción/diarización), NLP, visión por computador y modelos predictivos.
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-xs text-neutral-500">Disponibilidad</p>
-                  <p className="mt-1">
-                    Remoto en España · Híbrido en Valencia
-                  </p>
-                </div>
-
               </div>
-
-              <div className="mt-8">
-                <a
-                  href={`mailto:${email}`}
-                  className="inline-flex w-full items-center justify-center rounded-xl bg-white text-black px-6 py-3 font-medium hover:opacity-95 transition"
-                >
-                  Contactar por email
-                </a>
-              </div>
-
             </motion.div>
           </FadeIn>
         </div>
-
       </div>
     </Section>
   );
