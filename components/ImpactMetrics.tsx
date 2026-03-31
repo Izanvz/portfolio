@@ -12,7 +12,7 @@ const metrics = [
     note: "Backend, automatización e integración de modelos",
   },
   {
-    value: "Whisper · LLMs · LangGraph",
+    value: "Whisper + LangGraph",
     label: "stack IA",
     note: "Transcripción, extracción y orquestación de flujos",
   },

@@ -211,17 +211,23 @@ export default function Hero() {
               >
                 Contacto
               </a>
+              <a
+                href="/cv.pdf"
+                download
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-ink-700/60 text-ink-400 hover:border-amber/30 hover:text-ink-100 transition-all text-sm"
+              >
+                CV ↓
+              </a>
             </div>
 
             <div
               data-hero="stats"
-              className="mt-12 pt-8 border-t border-ink-800/50 grid grid-cols-2 md:grid-cols-4 gap-6"
+              className="mt-12 pt-8 border-t border-ink-800/50 grid grid-cols-3 gap-6"
             >
               {[
-                { value: "4+", label: "Proyectos IA" },
-                { value: "1 año", label: "Experiencia" },
+                { value: "4+", label: "Proyectos con IA" },
                 { value: "Python", label: "Stack core" },
-                { value: "Valencia/Safor", label: "España remoto · híbrido o presencial" },
+                { value: "ML Cert.", label: "DeepLearning.AI" },
               ].map((s) => (
                 <div key={`${s.value}-${s.label}`}>
                   <p className="text-lg font-semibold font-mono text-ink-100 tracking-tight">{s.value}</p>
