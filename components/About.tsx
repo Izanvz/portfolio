@@ -11,8 +11,8 @@ const proof = [
     desc: "Diseño agentes con LangGraph donde cada nodo tiene responsabilidad definida. El LLM extrae — SQLite guarda, ChromaDB indexa, FastAPI sirve.",
   },
   {
-    title: "Local-first por defecto",
-    desc: "Mis proyectos corren en tu máquina sin APIs de pago. WhisperX + Mistral 7B locales antes de ir a la nube.",
+    title: "Local-first por elección, no por dogma",
+    desc: "Desarrollo con modelos locales porque prefiero no incurrir en costes hasta que hay producto real. La arquitectura está diseñada para que cambiar a OpenAI, Claude o cualquier otra API sea cuestión de una línea de configuración.",
   },
 ];
 
