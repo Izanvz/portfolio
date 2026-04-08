@@ -54,6 +54,7 @@ export default function Contact() {
   return (
     <Section
       id="contact"
+      index={5}
       eyebrow="Contacto"
       title="Buscando trabajo activamente"
       subtitle="Si tu equipo trabaja con Python e IA y necesitas a alguien que construya producto desde el día 1, escríbeme."

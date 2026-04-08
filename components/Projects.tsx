@@ -174,6 +174,7 @@ export default function Projects() {
   return (
     <Section
       id="projects"
+      index={1}
       eyebrow="Proyectos"
       title="Sistemas con IA aplicada"
       subtitle="Proyectos donde la IA no se queda en el modelo: entra en el backend, la persistencia y el flujo real de producto."

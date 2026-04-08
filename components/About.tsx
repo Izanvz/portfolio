@@ -20,6 +20,7 @@ export default function About() {
   return (
     <Section
       id="about"
+      index={3}
       eyebrow="Sobre mí"
       title="Del modelo al producto"
       subtitle="Construyo sistemas donde la IA se integra con sentido: pipelines, API, persistencia y entrega."

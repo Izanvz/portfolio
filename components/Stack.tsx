@@ -49,6 +49,7 @@ export default function Stack() {
   return (
     <Section
       id="stack"
+      index={4}
       eyebrow="Stack Técnico"
       title="Herramientas"
       subtitle="Las herramientas con las que construyo — y las que he usado en proyectos reales."

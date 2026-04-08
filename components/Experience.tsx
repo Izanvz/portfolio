@@ -35,6 +35,7 @@ export default function Experience() {
   return (
     <Section
       id="experience"
+      index={2}
       eyebrow="Trayectoria"
       title="Experiencia"
       subtitle={undefined}
