@@ -7,7 +7,7 @@ import Section from "@/components/Section";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 const EMAIL = "izan.villarejo.ai@gmail.com";
-const FORMSPREE_ID = "REPLACE_WITH_YOUR_FORMSPREE_ID";
+const FORMSPREE_ID = ""; // Configura en formspree.io y pega aquí tu ID
 
 const summary = [
   { k: "Qué hago", v: "Integro modelos de IA en arquitecturas backend mantenibles y listas para producción." },
@@ -105,7 +105,7 @@ export default function Contact() {
                       <p className="text-[10px] font-mono uppercase tracking-widest text-ink-600">Ubicación</p>
                       <p className="mt-2 text-ink-100 font-medium">Gandía, Valencia</p>
                       <p className="mt-2 text-sm text-ink-500">
-                        España remoto · Gandía, Valencia híbrido o presencial
+                        España remoto · híbrido o presencial
                       </p>
                     </div>
                   </div>
@@ -135,7 +135,7 @@ export default function Contact() {
             </div>
           </FadeIn>
 
-          <FadeIn delay={0.08}>
+          {FORMSPREE_ID && <FadeIn delay={0.08}>
             <div className="p-px rounded-[26px] bg-gradient-to-b from-ink-700/40 to-transparent">
               <div className="rounded-[25px] bg-ink-925 p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
                 <h3 className="text-base font-semibold text-ink-100">Escríbeme directamente</h3>
@@ -190,7 +190,7 @@ export default function Contact() {
                 )}
               </div>
             </div>
-          </FadeIn>
+          </FadeIn>}
         </div>
 
         <div className="lg:col-span-5">

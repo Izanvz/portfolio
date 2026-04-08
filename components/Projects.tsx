@@ -34,12 +34,12 @@ const projects: Project[] = [
   },
   {
     title: "Sift",
-    desc: "Problema: la investigación profunda lleva horas. Solución: agente autónomo que descompone, busca y sintetiza en minutos con autocrítica integrada. LangGraph con búsquedas paralelas (web, RAG, arXiv) y checkpoint humano antes de la entrega.",
+    desc: "Problema: la investigación profunda lleva horas. Solución: agente que descompone la consulta, lanza búsquedas paralelas (web, RAG, arXiv), sintetiza y se auto-critica antes de pasar por un checkpoint humano.",
     stack: ["Python", "LangGraph", "FastAPI", "ChromaDB", "Ollama"],
     metrics: [
-      { value: "~10×", label: "reducción de tiempo" },
-      { value: "web + RAG + arXiv", label: "fuentes" },
-      { value: "3 bucles", label: "auto-crítica" },
+      { value: "12 nodos", label: "grafo LangGraph" },
+      { value: "3 fuentes", label: "web · RAG · arXiv" },
+      { value: "human-in-loop", label: "checkpoint" },
     ],
     href: "https://github.com/Izanvz/Sift",
     category: "LLM Agent",
@@ -52,7 +52,7 @@ const projects: Project[] = [
     metrics: [
       { value: "imagen retail", label: "input" },
       { value: "JSON + anotada", label: "output" },
-      { value: "0", label: "revisión manual" },
+      { value: "0 h", label: "revisión manual" },
     ],
     href: "https://github.com/Izanvz/VisuCheck",
     category: "Computer Vision",

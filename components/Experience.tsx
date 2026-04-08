@@ -37,7 +37,7 @@ export default function Experience() {
       id="experience"
       eyebrow="Trayectoria"
       title="Experiencia"
-      subtitle=""
+      subtitle={undefined}
     >
       <div className="space-y-12">
         <div>

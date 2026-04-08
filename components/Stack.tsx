@@ -39,8 +39,8 @@ const groups: StackGroup[] = [
     title: "DevOps & Herramientas",
     symbol: "▶",
     desc: "Entornos reproducibles, ejecución local y observabilidad.",
-    primaryItems: ["Docker", "Docker Compose", "GPU local (CUDA)"],
-    secondaryItems: ["Power BI", "Grafana", "Gestión de entornos", "Config por parámetros"],
+    primaryItems: ["Docker", "Docker Compose"],
+    secondaryItems: ["GPU local (CUDA)", "Power BI", "Grafana", "Gestión de entornos", "Config por parámetros"],
     core: false,
   },
 ];

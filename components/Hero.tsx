@@ -21,16 +21,7 @@ const PIPELINE_LINES = [
 
 function PipelinePanel() {
   return (
-    <>
-      <style>{`
-        @keyframes pipelineFade {
-          from { opacity: 0; transform: translateY(5px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        .pl { opacity: 0; animation: pipelineFade 0.3s ease forwards; }
-      `}</style>
-
-      <div className="relative">
+    <div className="relative">
         <div className="absolute -inset-4 rounded-[34px] bg-[radial-gradient(circle,oklch(75%_0.108_170_/_0.14),transparent_72%)] blur-2xl" />
 
         <div className="relative p-px rounded-[30px] bg-gradient-to-b from-amber/40 via-ink-700/70 to-transparent">
@@ -52,13 +43,13 @@ function PipelinePanel() {
                     line.text === "" ? (
                       <div
                         key={i}
-                        className="pl h-2"
+                        className="pipeline-line h-2"
                         style={{ animationDelay: `${0.5 + i * 0.13}s` }}
                       />
                     ) : (
                       <div
                         key={i}
-                        className={`pl flex items-center justify-between gap-3 ${line.cls}`}
+                        className={`pipeline-line flex items-center justify-between gap-3 ${line.cls}`}
                         style={{ animationDelay: `${0.5 + i * 0.13}s` }}
                       >
                         <span>{line.text}</span>
@@ -69,7 +60,7 @@ function PipelinePanel() {
                     )
                   )}
                   <div
-                    className="pl flex items-center gap-1 pt-1"
+                    className="pipeline-line flex items-center gap-1 pt-1"
                     style={{ animationDelay: `${0.5 + PIPELINE_LINES.length * 0.13}s` }}
                   >
                     <span className="text-ink-600">$ </span>
@@ -81,8 +72,7 @@ function PipelinePanel() {
 
           </div>
         </div>
-      </div>
-    </>
+    </div>
   );
 }
 
