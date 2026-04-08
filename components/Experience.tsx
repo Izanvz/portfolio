@@ -26,7 +26,7 @@ const certifications = [
     title: "Machine Learning Specialization (3 cursos)",
     issuer: "DeepLearning.AI / Stanford",
     date: "2025",
-    link: "https://www.coursera.org/specializations/machine-learning-introduction",
+    link: "https://coursera.org/share/f9fc5f7b5c7b2ca720c940a04aedc160",
   },
 ];
 
