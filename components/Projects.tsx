@@ -139,17 +139,13 @@ function ProjectCard({ project, large = false, compact = false }: { project: Pro
             {project.desc}
           </p>
 
-          <div className={`flex flex-wrap gap-6 ${large ? "mt-6" : compact ? "mt-3.5" : "mt-5"}`}>
+          <div className={`flex flex-wrap gap-2 ${large ? "mt-6" : compact ? "mt-3.5" : "mt-5"}`}>
             {project.metrics.map((m) => (
-              <div key={m.label}>
-                <p
-                  className={`font-mono text-amber font-semibold ${
-                    large ? "text-2xl" : compact ? "text-lg" : "text-xl md:text-[1.55rem]"
-                  }`}
-                >
+              <div key={m.label} className="rounded-[14px] border border-ink-800/60 bg-ink-950/60 px-3.5 py-2.5 flex flex-col gap-0.5">
+                <p className={`font-mono text-amber font-semibold leading-none ${large ? "text-lg" : "text-base"}`}>
                   {m.value}
                 </p>
-                <p className="font-mono text-ink-600 text-[10px] uppercase tracking-widest mt-0.5">{m.label}</p>
+                <p className="font-mono text-ink-600 text-[10px] uppercase tracking-widest">{m.label}</p>
               </div>
             ))}
           </div>
