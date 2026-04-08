@@ -7,6 +7,7 @@ import Section from "@/components/Section";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 const EMAIL = "izan.villarejo.ai@gmail.com";
+const FORMSPREE_ID = "REPLACE_WITH_YOUR_FORMSPREE_ID";
 
 const summary = [
   { k: "Qué hago", v: "Integro modelos de IA en arquitecturas backend mantenibles y listas para producción." },
@@ -15,8 +16,12 @@ const summary = [
   { k: "Disponibilidad", v: "España remoto · Gandía, Valencia híbrido o presencial" },
 ];
 
+type FormStatus = "idle" | "sending" | "sent" | "error";
+
 export default function Contact() {
   const [copied, setCopied] = useState(false);
+  const [form, setForm] = useState({ nombre: "", email: "", mensaje: "" });
+  const [status, setStatus] = useState<FormStatus>("idle");
 
   async function handleCopy() {
     try {
@@ -24,6 +29,26 @@ export default function Contact() {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {}
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setStatus("sending");
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ nombre: form.nombre, email: form.email, message: form.mensaje }),
+      });
+      if (res.ok) {
+        setStatus("sent");
+        setForm({ nombre: "", email: "", mensaje: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -34,7 +59,7 @@ export default function Contact() {
       subtitle="Si tu equipo trabaja con Python e IA y necesitas a alguien que construya producto desde el día 1, escríbeme."
     >
       <div className="grid lg:grid-cols-12 gap-6 items-start">
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-7 space-y-4">
           <FadeIn>
             <div className="relative overflow-hidden p-px rounded-[26px] bg-gradient-to-b from-ink-700/50 to-transparent">
               <div className="rounded-[25px] bg-ink-925 p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
@@ -109,6 +134,63 @@ export default function Contact() {
               </div>
             </div>
           </FadeIn>
+
+          <FadeIn delay={0.08}>
+            <div className="p-px rounded-[26px] bg-gradient-to-b from-ink-700/40 to-transparent">
+              <div className="rounded-[25px] bg-ink-925 p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+                <h3 className="text-base font-semibold text-ink-100">Escríbeme directamente</h3>
+                <p className="mt-1.5 text-sm text-ink-500">O usa el email de arriba — lo que prefieras.</p>
+
+                {status === "sent" ? (
+                  <div className="mt-6 rounded-[18px] border border-emerald-500/20 bg-emerald-500/[0.06] px-6 py-5 text-sm text-emerald-400">
+                    ✓ Mensaje enviado. Te respondo pronto.
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="mt-6 space-y-3">
+                    <div className="grid sm:grid-cols-2 gap-3">
+                      <input
+                        type="text"
+                        placeholder="Nombre"
+                        required
+                        value={form.nombre}
+                        onChange={(e) => setForm({ ...form, nombre: e.target.value })}
+                        className="w-full rounded-[14px] border border-ink-800/60 bg-ink-950/80 px-4 py-3 text-sm text-ink-200 placeholder-ink-700 focus:outline-none focus:border-amber/40 transition-colors"
+                      />
+                      <input
+                        type="email"
+                        placeholder="Email"
+                        required
+                        value={form.email}
+                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        className="w-full rounded-[14px] border border-ink-800/60 bg-ink-950/80 px-4 py-3 text-sm text-ink-200 placeholder-ink-700 focus:outline-none focus:border-amber/40 transition-colors"
+                      />
+                    </div>
+                    <textarea
+                      placeholder="Cuéntame el contexto — qué buscas, el stack, el tamaño del equipo..."
+                      required
+                      rows={4}
+                      value={form.mensaje}
+                      onChange={(e) => setForm({ ...form, mensaje: e.target.value })}
+                      className="w-full rounded-[14px] border border-ink-800/60 bg-ink-950/80 px-4 py-3 text-sm text-ink-200 placeholder-ink-700 focus:outline-none focus:border-amber/40 transition-colors resize-none"
+                    />
+                    {status === "error" && (
+                      <p className="text-xs text-red-400">Algo ha fallado. Escríbeme directamente al email.</p>
+                    )}
+                    <button
+                      type="submit"
+                      disabled={status === "sending"}
+                      className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber text-ink-950 font-medium text-sm hover:bg-amber-bright transition-colors disabled:opacity-60"
+                    >
+                      {status === "sending" ? "Enviando..." : "Enviar mensaje"}
+                      <span className="w-5 h-5 rounded-full bg-ink-950/15 flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">
+                        →
+                      </span>
+                    </button>
+                  </form>
+                )}
+              </div>
+            </div>
+          </FadeIn>
         </div>
 
         <div className="lg:col-span-5">
@@ -132,7 +214,7 @@ export default function Contact() {
                     aria-label="Contactar a Izan por email"
                     className="group mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-amber text-ink-950 px-6 py-3 font-medium hover:bg-amber-bright transition-colors"
                   >
-                    Contactar
+                    Contactar por email
                     <span className="w-6 h-6 rounded-full bg-ink-950/15 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-px transition-transform">
                       →
                     </span>

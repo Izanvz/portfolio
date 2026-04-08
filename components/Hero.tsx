@@ -4,73 +4,85 @@ import { useEffect, useRef } from "react";
 import { useReducedMotion } from "framer-motion";
 import gsap from "gsap";
 
-function MeetingAgentPreview() {
+const PIPELINE_LINES = [
+  { text: "$ meeting-agent --input reunion.mp3", cls: "text-amber" },
+  { text: "", cls: "" },
+  { text: "▶  WhisperX        transcribiendo...", cls: "text-ink-300", ok: true },
+  { text: "▶  LangGraph        procesando nodos", cls: "text-ink-300", ok: true },
+  { text: "   ├─ SQLite    →  historial guardado", cls: "text-ink-500" },
+  { text: "   └─ ChromaDB  →  indexado semántico", cls: "text-ink-500" },
+  { text: "▶  FastAPI          sirviendo result.", cls: "text-ink-300", ok: true },
+  { text: "", cls: "" },
+  { text: "──────────────────────────────────────", cls: "text-ink-800" },
+  { text: "resumen      →  3 decisiones clave", cls: "text-amber/80" },
+  { text: "action items →  5 tareas asignadas", cls: "text-amber/80" },
+  { text: "tiempo: 1m 47s  ·  coste API: 0 €", cls: "text-ink-600" },
+];
+
+function PipelinePanel() {
   return (
-    <a
-      href="https://meeting-agent-web.vercel.app/"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Abrir demo web de MeetingAgent"
-      className="group block"
-    >
+    <>
+      <style>{`
+        @keyframes pipelineFade {
+          from { opacity: 0; transform: translateY(5px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        .pl { opacity: 0; animation: pipelineFade 0.3s ease forwards; }
+      `}</style>
+
       <div className="relative">
         <div className="absolute -inset-4 rounded-[34px] bg-[radial-gradient(circle,oklch(75%_0.108_170_/_0.14),transparent_72%)] blur-2xl" />
 
         <div className="relative p-px rounded-[30px] bg-gradient-to-b from-amber/40 via-ink-700/70 to-transparent">
           <div className="rounded-[29px] bg-ink-925 overflow-hidden shadow-[0_0_60px_oklch(75%_0.108_170_/_0.12),inset_0_1px_0_rgba(255,255,255,0.05)]">
+
             <div className="flex items-center gap-2 px-5 py-4 border-b border-ink-800/50 bg-[linear-gradient(90deg,oklch(10%_0.01_240),oklch(12%_0.02_190_/_0.82))]">
               <div className="flex gap-2">
                 <span className="w-3 h-3 rounded-full bg-error/75" />
                 <span className="w-3 h-3 rounded-full bg-yellow-500/75" />
                 <span className="w-3 h-3 rounded-full bg-success/75" />
               </div>
-              <span className="mx-auto text-[12px] text-ink-500 tracking-wide">meeting-agent-web.vercel.app</span>
+              <span className="mx-auto text-[12px] text-ink-500 tracking-wide font-mono">meeting-agent v1.0</span>
             </div>
 
             <div className="p-6 md:p-7 bg-[linear-gradient(180deg,oklch(8.8%_0.008_244),oklch(7.5%_0.007_244))]">
-              <div className="rounded-[22px] border border-ink-800/60 bg-ink-950/80 p-5">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="text-[10px] font-mono uppercase tracking-[0.18em] text-amber">Proyecto destacado</p>
-                    <h3 className="mt-3 text-2xl font-semibold tracking-tight text-ink-100">MeetingAgent</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-ink-400 max-w-md">
-                      Plataforma para convertir reuniones en transcripción, resumen y action items con búsqueda semántica e integraciones.
-                    </p>
+              <div className="rounded-[22px] border border-ink-800/60 bg-ink-950/90 p-5">
+                <div className="font-mono text-[12px] leading-relaxed space-y-1">
+                  {PIPELINE_LINES.map((line, i) =>
+                    line.text === "" ? (
+                      <div
+                        key={i}
+                        className="pl h-2"
+                        style={{ animationDelay: `${0.5 + i * 0.13}s` }}
+                      />
+                    ) : (
+                      <div
+                        key={i}
+                        className={`pl flex items-center justify-between gap-3 ${line.cls}`}
+                        style={{ animationDelay: `${0.5 + i * 0.13}s` }}
+                      >
+                        <span>{line.text}</span>
+                        {line.ok && (
+                          <span className="text-emerald-400 flex-shrink-0 text-[11px]">✓</span>
+                        )}
+                      </div>
+                    )
+                  )}
+                  <div
+                    className="pl flex items-center gap-1 pt-1"
+                    style={{ animationDelay: `${0.5 + PIPELINE_LINES.length * 0.13}s` }}
+                  >
+                    <span className="text-ink-600">$ </span>
+                    <span className="inline-block w-[7px] h-[14px] bg-amber/60 animate-pulse" />
                   </div>
-                  <span className="rounded-full border border-amber/20 bg-amber/10 px-3 py-1 text-[11px] font-mono text-amber">
-                    demo live
-                  </span>
-                </div>
-
-                <div className="mt-6 grid grid-cols-2 gap-3">
-                  {[
-                    { label: "Pipeline", value: "Whisper + LLMs" },
-                    { label: "Orquestación", value: "LangGraph" },
-                    { label: "Salida", value: "Resumen + tareas" },
-                    { label: "Modo", value: "Web demo" },
-                  ].map((item) => (
-                    <div key={item.label} className="rounded-2xl border border-ink-800/60 bg-ink-900/50 px-4 py-3">
-                      <p className="text-[10px] font-mono uppercase tracking-widest text-ink-600">{item.label}</p>
-                      <p className="mt-1.5 text-sm text-ink-200">{item.value}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-6 flex items-center justify-between gap-4 border-t border-ink-800/60 pt-5">
-                  <div className="text-[12px] text-ink-500">
-                    Abrir web/demo del proyecto
-                  </div>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-ink-700/70 bg-ink-900/60 px-4 py-2 text-[12px] font-medium text-ink-200 transition-all group-hover:border-amber/40 group-hover:bg-ink-900 group-hover:text-amber">
-                    Ver demo
-                    <span className="text-[13px] transition-transform group-hover:translate-x-0.5">↗</span>
-                  </span>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
-    </a>
+    </>
   );
 }
 
@@ -215,7 +227,7 @@ export default function Hero() {
           </div>
 
           <div data-hero="panel" className="hidden lg:block">
-            <MeetingAgentPreview />
+            <PipelinePanel />
           </div>
         </div>
       </div>
