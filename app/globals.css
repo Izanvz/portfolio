@@ -84,30 +84,6 @@ body {
   border-radius: 6px;
 }
 
-/* B — Cursor personalizado */
-@media (pointer: fine) {
-  html, body, * { cursor: none !important; }
-}
-
-.cursor-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: oklch(75% 0.108 170);
-  box-shadow:
-    0 0 6px 2px oklch(75% 0.108 170 / 0.55),
-    0 0 20px 8px oklch(75% 0.108 170 / 0.14),
-    0 0 55px 22px oklch(75% 0.108 170 / 0.07);
-  will-change: transform;
-  transition: box-shadow 0.2s ease;
-}
-
-.cursor-dot--hover {
-  box-shadow:
-    0 0 6px 2px oklch(75% 0.108 170 / 0.7),
-    0 0 24px 10px oklch(75% 0.108 170 / 0.22),
-    0 0 70px 28px oklch(75% 0.108 170 / 0.10);
-}
 
 @keyframes marquee-left {
   from { transform: translateX(0); }

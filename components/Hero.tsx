@@ -24,7 +24,7 @@ function PipelinePanel() {
     <div className="relative">
         <div className="absolute -inset-4 rounded-[34px] bg-[radial-gradient(circle,oklch(75%_0.108_170_/_0.14),transparent_72%)] blur-2xl" />
 
-        <div className="relative p-px rounded-[30px] bg-gradient-to-b from-amber/40 via-ink-700/70 to-transparent">
+        <div className="relative p-px rounded-[30px] bg-gradient-to-b from-amber/40 via-ink-700/70 to-transparent transition-all duration-300 group-hover/panel:from-amber/60 group-hover/panel:shadow-[0_0_40px_oklch(75%_0.108_170_/_0.12)]">
           <div className="rounded-[29px] bg-ink-925 overflow-hidden shadow-[0_0_60px_oklch(75%_0.108_170_/_0.12),inset_0_1px_0_rgba(255,255,255,0.05)]">
 
             <div className="flex items-center gap-2 px-5 py-4 border-b border-ink-800/50 bg-[linear-gradient(90deg,oklch(10%_0.01_240),oklch(12%_0.02_190_/_0.82))]">
@@ -216,7 +216,15 @@ export default function Hero() {
           </div>
 
           <div data-hero="panel" className="hidden lg:block">
-            <PipelinePanel />
+            <a
+              href="https://meeting-agent-web.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group/panel"
+              aria-label="Ver demo de MeetingAgent"
+            >
+              <PipelinePanel />
+            </a>
           </div>
         </div>
       </div>
