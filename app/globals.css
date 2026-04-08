@@ -94,23 +94,19 @@ body {
   height: 6px;
   border-radius: 50%;
   background: oklch(75% 0.108 170);
-  box-shadow: 0 0 8px oklch(75% 0.108 170 / 0.6);
+  box-shadow:
+    0 0 6px 2px oklch(75% 0.108 170 / 0.55),
+    0 0 20px 8px oklch(75% 0.108 170 / 0.14),
+    0 0 55px 22px oklch(75% 0.108 170 / 0.07);
   will-change: transform;
+  transition: box-shadow 0.2s ease;
 }
 
-.cursor-ring {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: 1.5px solid oklch(75% 0.108 170 / 0.4);
-  will-change: transform;
-  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
-}
-
-.cursor-ring--hover {
-  width: 44px;
-  height: 44px;
-  border-color: oklch(75% 0.108 170 / 0.7);
+.cursor-dot--hover {
+  box-shadow:
+    0 0 6px 2px oklch(75% 0.108 170 / 0.7),
+    0 0 24px 10px oklch(75% 0.108 170 / 0.22),
+    0 0 70px 28px oklch(75% 0.108 170 / 0.10);
 }
 
 @keyframes pipelineFade {
