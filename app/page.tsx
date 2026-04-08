@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import MarqueeTicker from "@/components/MarqueeTicker";
 import ImpactMetrics from "@/components/ImpactMetrics";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
@@ -12,6 +13,7 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
+      <MarqueeTicker />
       <ImpactMetrics />
       <Projects />
       <Experience />

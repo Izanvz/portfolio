@@ -109,6 +109,17 @@ body {
     0 0 70px 28px oklch(75% 0.108 170 / 0.10);
 }
 
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-left { animation: marquee-left 28s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-left { animation: none; }
+}
+
 @keyframes pipelineFade {
   from { opacity: 0; transform: translateY(5px); }
   to   { opacity: 1; transform: translateY(0); }
