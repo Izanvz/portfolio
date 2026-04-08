@@ -15,6 +15,7 @@ type Project = {
   href: string;
   category: string;
   featured?: boolean;
+  wip?: boolean;
 };
 
 const projects: Project[] = [
@@ -42,6 +43,7 @@ const projects: Project[] = [
     ],
     href: "https://github.com/Izanvz/Sift",
     category: "LLM Agent",
+    wip: true,
   },
   {
     title: "VisuCheck",
@@ -94,6 +96,15 @@ function ProjectCard({ project, large = false, compact = false }: { project: Pro
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-amber/10 text-amber border border-amber/20">
                   {project.category}
                 </span>
+                {project.wip && (
+                  <span className="inline-flex items-center gap-1.5 text-[10px] font-mono px-2 py-0.5 rounded-md bg-amber/10 text-amber border border-amber/20">
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber opacity-60" />
+                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-amber" />
+                    </span>
+                    en construcción
+                  </span>
+                )}
                 {project.featured && (
                   <>
                     <span className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-ink-800/60 text-ink-400 border border-amber/15">
