@@ -25,6 +25,33 @@ export default function About() {
       subtitle="Construyo sistemas donde la IA se integra con criterio: pipelines, API, persistencia y entrega."
     >
       <div className="grid lg:grid-cols-12 gap-8 items-start" role="region" aria-label="Sobre Izan Villarejo">
+        <div className="lg:col-span-5 space-y-4">
+          {proof.map((p, idx) => (
+            <FadeIn key={p.title} delay={idx * 0.08}>
+              <div className="p-px rounded-[22px] bg-gradient-to-b from-ink-700/30 to-transparent hover:from-amber/20 transition-all duration-500">
+                <div className="rounded-[21px] bg-ink-925 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="text-ink-100 font-semibold">{p.title}</h3>
+                    <span className="text-amber font-mono text-sm font-medium flex-shrink-0">0{idx + 1}</span>
+                  </div>
+                  <p className="mt-2.5 text-sm text-ink-400 leading-relaxed">{p.desc}</p>
+                </div>
+              </div>
+            </FadeIn>
+          ))}
+
+          <FadeIn delay={0.28}>
+            <div className="p-px rounded-[22px] bg-gradient-to-b from-amber/20 to-amber/5">
+              <div className="rounded-[21px] bg-ink-925 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
+                <p className="text-[10px] font-mono uppercase tracking-widest text-ink-500">Filosofía</p>
+                <p className="mt-3 text-ink-200 leading-relaxed">
+                  La IA no es el producto. El sistema que la integra correctamente sí lo es. Por eso en MeetingAgent el LLM extrae, pero SQLite guarda, ChromaDB indexa y FastAPI sirve — cada capa con su responsabilidad.
+                </p>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+
         <div className="lg:col-span-7">
           <FadeIn>
             <div className="p-px rounded-[26px] bg-gradient-to-b from-ink-700/50 to-transparent">
@@ -56,33 +83,6 @@ export default function About() {
                     desde el procesamiento y la lógica hasta la API, la persistencia y la entrega final a producto.
                   </p>
                 </div>
-              </div>
-            </div>
-          </FadeIn>
-        </div>
-
-        <div className="lg:col-span-5 space-y-4">
-          {proof.map((p, idx) => (
-            <FadeIn key={p.title} delay={idx * 0.08}>
-              <div className="p-px rounded-[22px] bg-gradient-to-b from-ink-700/30 to-transparent hover:from-amber/20 transition-all duration-500">
-                <div className="rounded-[21px] bg-ink-925 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
-                  <div className="flex items-start justify-between gap-3">
-                    <h3 className="text-ink-100 font-semibold">{p.title}</h3>
-                    <span className="text-amber font-mono text-sm font-medium flex-shrink-0">0{idx + 1}</span>
-                  </div>
-                  <p className="mt-2.5 text-sm text-ink-400 leading-relaxed">{p.desc}</p>
-                </div>
-              </div>
-            </FadeIn>
-          ))}
-
-          <FadeIn delay={0.28}>
-            <div className="p-px rounded-[22px] bg-gradient-to-b from-amber/20 to-amber/5">
-              <div className="rounded-[21px] bg-ink-925 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
-                <p className="text-[10px] font-mono uppercase tracking-widest text-ink-500">Filosofía</p>
-                <p className="mt-3 text-ink-200 leading-relaxed">
-                  La IA no es el producto. El sistema que la integra correctamente sí lo es. Por eso en MeetingAgent el LLM extrae, pero SQLite guarda, ChromaDB indexa y FastAPI sirve — cada capa con su responsabilidad.
-                </p>
               </div>
             </div>
           </FadeIn>

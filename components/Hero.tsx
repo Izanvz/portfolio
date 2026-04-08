@@ -156,7 +156,7 @@ export default function Hero() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber opacity-60" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-amber" />
                 </span>
-                Disponible · España remoto · Valencia/Safor híbrido o presencial
+                Disponible · España remoto · Gandía, Valencia híbrido o presencial
               </span>
             </div>
 

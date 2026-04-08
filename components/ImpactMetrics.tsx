@@ -17,7 +17,7 @@ const metrics = [
     note: "Transcripción, extracción y orquestación de flujos",
   },
   {
-    value: "Valencia/Safor",
+    value: "Gandía, Valencia",
     label: "disponibilidad",
     note: "Híbrido o presencial · España remoto",
   },

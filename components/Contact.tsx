@@ -12,7 +12,7 @@ const summary = [
   { k: "Qué hago", v: "Integro modelos de IA en arquitecturas backend mantenibles y listas para producción." },
   { k: "En qué soy fuerte", v: "Diseño de pipelines, APIs robustas con FastAPI y automatización de procesos empresariales." },
   { k: "Tipo de proyectos", v: "Audio, NLP, computer vision, agentes y modelos predictivos conectados a producto." },
-  { k: "Disponibilidad", v: "España remoto · Valencia/Safor híbrido o presencial" },
+  { k: "Disponibilidad", v: "España remoto · Gandía, Valencia híbrido o presencial" },
 ];
 
 export default function Contact() {
@@ -80,7 +80,7 @@ export default function Contact() {
                       <p className="text-[10px] font-mono uppercase tracking-widest text-ink-600">Ubicación</p>
                       <p className="mt-2 text-ink-100 font-medium">Gandía, Valencia</p>
                       <p className="mt-2 text-sm text-ink-500">
-                        España remoto · Valencia/Safor híbrido o presencial
+                        España remoto · Gandía, Valencia híbrido o presencial
                       </p>
                     </div>
                   </div>

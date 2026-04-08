@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-izanv.vercel.app"),
   title: "Izan Villarejo Adames | Backend Developer & AI Engineer",
   description:
-    "Backend Engineer especializado en integrar IA en sistemas reales: del pipeline a producción, remoto en España y disponible en Valencia/Safor.",
+    "Backend Engineer especializado en integrar IA en sistemas reales: del pipeline a producción, remoto en España y disponible en Gandía, Valencia.",
   keywords: [
     "Backend Engineer",
     "AI Engineer",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Izan Villarejo Adames | Backend Developer & AI Engineer",
     description:
-      "Backend Engineer especializado en integrar IA en sistemas reales: del pipeline a producción, remoto en España y disponible en Valencia/Safor.",
+      "Backend Engineer especializado en integrar IA en sistemas reales: del pipeline a producción, remoto en España y disponible en Gandía, Valencia.",
     url: "https://portfolio-izanv.vercel.app",
     siteName: "Izan Villarejo Portfolio",
     locale: "es_ES",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Izan Villarejo Adames | Backend Developer & AI Engineer",
     description:
-      "Backend Engineer especializado en integrar IA en sistemas reales: del pipeline a producción, remoto en España y disponible en Valencia/Safor.",
+      "Backend Engineer especializado en integrar IA en sistemas reales: del pipeline a producción, remoto en España y disponible en Gandía, Valencia.",
     images: ["/og-image.png"],
   },
 };

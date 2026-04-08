@@ -33,7 +33,7 @@ const projects: Project[] = [
   },
   {
     title: "Sift",
-    desc: "Agente autónomo de investigación con LangGraph. Descompone consultas en subtemas, ejecuta búsquedas paralelas (web, RAG, arXiv) y sintetiza un informe estructurado con bucles de autocrítica y checkpoint humano antes de la entrega final.",
+    desc: "Investigación profunda que tarda horas, automatizada en minutos. Agente autónomo con LangGraph que descompone consultas en subtemas, ejecuta búsquedas paralelas (web, RAG, arXiv) y sintetiza un informe con bucles de autocrítica y checkpoint humano.",
     stack: ["Python", "LangGraph", "FastAPI", "ChromaDB", "Ollama"],
     metrics: [
       { value: "12 nodos", label: "grafo" },
@@ -45,7 +45,7 @@ const projects: Project[] = [
   },
   {
     title: "VisuCheck",
-    desc: "Pipeline modular para analizar imágenes de retail, extraer texto, detectar precios y marcas, y devolver JSON estructurado junto a una imagen anotada con los resultados.",
+    desc: "Auditoría visual de lineales de retail sin revisión manual. Pipeline modular que analiza imágenes, extrae texto, detecta precios y marcas, y devuelve JSON estructurado con imagen anotada.",
     stack: ["Python", "YOLOv8", "PaddleOCR", "FastAPI", "Streamlit"],
     metrics: [
       { value: "YOLOv8", label: "detección" },
@@ -56,7 +56,7 @@ const projects: Project[] = [
   },
   {
     title: "AudioSmart",
-    desc: "Pipeline local para analizar audio desde YouTube o archivo, generar transcripción con timestamps, resumen en español, temas clave y reparto por hablantes sin usar APIs de pago.",
+    desc: "Análisis completo de cualquier audio sin coste de API. Pipeline local que procesa audio desde YouTube o archivo, genera transcripción con timestamps, resumen en español, temas clave y reparto por hablantes.",
     stack: ["Python", "WhisperX", "Mistral 7B", "Streamlit", "yt-dlp"],
     metrics: [
       { value: "WhisperX", label: "transcripción" },
@@ -93,9 +93,18 @@ function ProjectCard({ project, large = false, compact = false }: { project: Pro
                   {project.category}
                 </span>
                 {project.featured && (
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-ink-800/60 text-ink-400 border border-amber/15">
-                    flagship
-                  </span>
+                  <>
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-ink-800/60 text-ink-400 border border-amber/15">
+                      flagship
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-[13px] font-mono px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 font-medium">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+                      </span>
+                      demo live
+                    </span>
+                  </>
                 )}
               </div>
               <h3

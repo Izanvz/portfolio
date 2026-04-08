@@ -5,9 +5,9 @@ type StackGroup = {
   title: string;
   symbol: string;
   desc: string;
-  items: string[];
+  primaryItems: string[];
+  secondaryItems: string[];
   core: boolean;
-  coreItems: string[];
 };
 
 const groups: StackGroup[] = [
@@ -15,46 +15,33 @@ const groups: StackGroup[] = [
     title: "Backend & APIs",
     symbol: "{}",
     desc: "Servicios HTTP, automatización y diseño API-first.",
-    items: ["Python", "FastAPI", "REST APIs", "OpenAPI/Swagger", "Scripts & Automation", "Uvicorn"],
+    primaryItems: ["Python", "FastAPI", "REST APIs", "OpenAPI/Swagger"],
+    secondaryItems: ["Scripts & Automation", "Uvicorn"],
     core: true,
-    coreItems: ["Python", "FastAPI"],
   },
   {
     title: "Datos & Bases de Datos",
     symbol: "[]",
     desc: "Persistencia y modelado según el caso.",
-    items: ["SQLite", "ChromaDB", "MySQL", "SQL", "Modelado de datos", "Pandas"],
+    primaryItems: ["SQLite", "ChromaDB", "MySQL"],
+    secondaryItems: ["Pandas", "SQL", "Kafka", "Elasticsearch"],
     core: false,
-    coreItems: ["SQLite", "ChromaDB"],
   },
   {
     title: "Machine Learning & AI",
     symbol: "∇",
     desc: "Modelos aplicados a audio, NLP, agentes y visión.",
-    items: [
-      "PyTorch",
-      "LangChain",
-      "LangGraph",
-      "WhisperX",
-      "Whisper",
-      "Mistral 7B",
-      "Ollama",
-      "YOLOv8",
-      "PaddleOCR",
-      "XGBoost",
-      "LightGBM",
-      "Scikit-learn",
-    ],
+    primaryItems: ["PyTorch", "LangChain", "LangGraph", "WhisperX", "Ollama", "Whisper", "Mistral 7B"],
+    secondaryItems: ["XGBoost", "LightGBM", "Scikit-learn", "YOLOv8", "PaddleOCR"],
     core: true,
-    coreItems: ["LangGraph", "WhisperX", "YOLOv8", "XGBoost"],
   },
   {
-    title: "DevOps & Deployment",
+    title: "DevOps & Herramientas",
     symbol: "▶",
-    desc: "Entornos reproducibles y ejecución local.",
-    items: ["Docker", "Docker Compose", "Gestión de entornos", "Config por parámetros", "GPU local (CUDA)", "Local-first"],
+    desc: "Entornos reproducibles, ejecución local y observabilidad.",
+    primaryItems: ["Docker", "Docker Compose", "GPU local (CUDA)"],
+    secondaryItems: ["Power BI", "Grafana", "Gestión de entornos", "Config por parámetros"],
     core: false,
-    coreItems: ["Docker"],
   },
 ];
 
@@ -96,19 +83,33 @@ export default function Stack() {
                 <p className="mt-2 text-ink-500 text-sm">{g.desc}</p>
 
                 <div className="mt-5 flex flex-wrap gap-2">
-                  {g.items.map((x) => (
+                  {g.primaryItems.map((x) => (
                     <span
                       key={x}
-                      className={
-                        g.coreItems.includes(x)
-                          ? "text-xs font-mono px-2.5 py-1 rounded-full border border-amber/30 text-amber bg-amber/[0.06] font-medium"
-                          : "text-xs font-mono px-2.5 py-1 rounded-full border border-ink-800/60 text-ink-400 bg-ink-950/50"
-                      }
+                      className="text-xs font-mono px-2.5 py-1 rounded-full border border-amber/30 text-amber bg-amber/[0.06] font-medium"
                     >
                       {x}
                     </span>
                   ))}
                 </div>
+
+                {g.secondaryItems.length > 0 && (
+                  <>
+                    <p className="text-[9px] font-mono uppercase tracking-[0.16em] text-ink-700 mt-4 mb-2">
+                      He trabajado con
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {g.secondaryItems.map((x) => (
+                        <span
+                          key={x}
+                          className="text-xs font-mono px-2.5 py-1 rounded-full border border-ink-800/60 text-ink-500 bg-ink-950/50"
+                        >
+                          {x}
+                        </span>
+                      ))}
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </FadeIn>
