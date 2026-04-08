@@ -98,9 +98,9 @@ export default function Hero() {
       gsap.set("[data-hero='panel']", { x: 28 });
 
       gsap.timeline({ defaults: { ease: "power3.out" } })
-        .to("[data-hero='badge']", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55 })
-        .to("[data-hero='title']", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.78 }, "-=0.18")
+        .to("[data-hero='title']", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.78 })
         .to("[data-hero='role']", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55 }, "-=0.44")
+        .to("[data-hero='badge']", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55 }, "-=0.18")
         .to("[data-hero='desc']", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55 }, "-=0.36")
         .to("[data-hero='cta']", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5 }, "-=0.32")
         .to("[data-hero='panel']", { opacity: 1, x: 0, y: 0, filter: "blur(0px)", duration: 0.8 }, "-=0.44");
@@ -150,19 +150,9 @@ export default function Hero() {
       <div className="max-w-6xl mx-auto px-6 md:px-8 w-full">
         <div className="grid lg:grid-cols-[1fr_460px] gap-10 xl:gap-16 items-center">
           <div>
-            <div data-hero="badge">
-              <span className="inline-flex items-center gap-2 text-xs text-ink-200 border border-amber/18 bg-[linear-gradient(90deg,oklch(11.5%_0.009_240_/_0.9),oklch(13.5%_0.028_190_/_0.72))] px-3 py-1.5 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber opacity-60" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-amber" />
-                </span>
-                Disponible · España remoto · Gandía, Valencia híbrido o presencial
-              </span>
-            </div>
-
             <h1
               data-hero="title"
-              className="mt-7 font-semibold leading-[0.98] tracking-tight text-ink-50"
+              className="font-semibold leading-[0.98] tracking-tight text-ink-50"
               style={{ fontSize: "clamp(3.35rem, 7vw + 1rem, 5.8rem)" }}
             >
               Izan
@@ -177,12 +167,22 @@ export default function Hero() {
               AI Engineer · Backend Developer
             </p>
 
+            <div data-hero="badge" className="mt-5">
+              <span className="inline-flex items-center gap-2 text-xs text-ink-200 border border-amber/18 bg-[linear-gradient(90deg,oklch(11.5%_0.009_240_/_0.9),oklch(13.5%_0.028_190_/_0.72))] px-3 py-1.5 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber opacity-60" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-amber" />
+                </span>
+                Disponible · España remoto · Gandía, Valencia híbrido o presencial
+              </span>
+            </div>
+
             <p
               data-hero="desc"
               className="mt-5 text-ink-400 leading-relaxed max-w-[42ch] text-base md:text-lg"
             >
-              Diseño e integro sistemas backend que incorporan IA en entornos reales:
-              pipelines, APIs, automatización y producto listo para usarse.
+              En TESI automaticé 40h/mes de trabajo manual con un pipeline Whisper + GPT-4.
+              Construyo sistemas donde la IA tiene un rol concreto — no control total — sobre el flujo.
             </p>
 
             <div data-hero="cta" className="mt-8 flex flex-wrap gap-3">
@@ -202,12 +202,6 @@ export default function Hero() {
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-ink-700/60 text-ink-300 hover:border-amber/30 hover:text-ink-100 hover:bg-ink-900/50 transition-all"
               >
                 GitHub ↗
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-ink-700/60 bg-ink-900/25 hover:bg-ink-900/55 transition-all text-ink-300 hover:text-ink-100"
-              >
-                Contacto
               </a>
               <a
                 href="/cv.pdf"

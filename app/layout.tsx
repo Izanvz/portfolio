@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "Portfolio",
     "España",
     "Valencia",
-    "Safor",
+    "Gandía",
   ],
   authors: [{ name: "Izan Villarejo Adames" }],
   creator: "Izan Villarejo Adames",

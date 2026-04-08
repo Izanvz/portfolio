@@ -36,7 +36,7 @@ export default function Experience() {
       id="experience"
       eyebrow="Trayectoria"
       title="Experiencia"
-      subtitle="Trayectoria profesional, formación académica y certificaciones relevantes."
+      subtitle=""
     >
       <div className="space-y-12">
         <div>

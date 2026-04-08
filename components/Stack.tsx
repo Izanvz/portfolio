@@ -22,7 +22,7 @@ const groups: StackGroup[] = [
   {
     title: "Datos & Bases de Datos",
     symbol: "[]",
-    desc: "Persistencia y modelado según el caso.",
+    desc: "SQLite para local, MySQL para relacional, ChromaDB para vectores.",
     primaryItems: ["SQLite", "ChromaDB", "MySQL"],
     secondaryItems: ["Pandas", "SQL", "Kafka", "Elasticsearch"],
     core: false,
@@ -51,7 +51,7 @@ export default function Stack() {
       id="stack"
       eyebrow="Stack Técnico"
       title="Herramientas"
-      subtitle="Tecnologías que uso para construir sistemas backend con IA integrada en producción."
+      subtitle="Las herramientas con las que construyo — y las que he usado en proyectos reales."
     >
       <div className="grid md:grid-cols-2 gap-4">
         {groups.map((g, idx) => (
@@ -74,11 +74,6 @@ export default function Stack() {
                   <h3 className={`text-base font-semibold ${g.core ? "text-ink-100" : "text-ink-300"}`}>
                     {g.title}
                   </h3>
-                  {g.core && (
-                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-amber/10 text-amber border border-amber/20">
-                      core
-                    </span>
-                  )}
                 </div>
                 <p className="mt-2 text-ink-500 text-sm">{g.desc}</p>
 

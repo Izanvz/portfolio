@@ -45,7 +45,7 @@ export default function About() {
               <div className="rounded-[21px] bg-ink-925 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
                 <p className="text-[10px] font-mono uppercase tracking-widest text-ink-500">Filosofía</p>
                 <p className="mt-3 text-ink-200 leading-relaxed">
-                  La IA no es el producto. El sistema que la integra correctamente sí lo es. Por eso en MeetingAgent el LLM extrae, pero SQLite guarda, ChromaDB indexa y FastAPI sirve — cada capa con su responsabilidad.
+                  La IA no es el producto. El sistema que la integra correctamente sí lo es. Mi trabajo es que cada capa tenga su responsabilidad — y que el resultado llegue a producción sin depender de APIs externas cuando no hace falta.
                 </p>
               </div>
             </div>

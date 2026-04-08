@@ -31,7 +31,7 @@ export default function Contact() {
       id="contact"
       eyebrow="Contacto"
       title="Buscando trabajo activamente"
-      subtitle="Si tu equipo trabaja con Python, IA y necesitas a alguien que se ponga las pilas desde el día 1, escríbeme."
+      subtitle="Si tu equipo trabaja con Python e IA y necesitas a alguien que construya producto desde el día 1, escríbeme."
     >
       <div className="grid lg:grid-cols-12 gap-6 items-start">
         <div className="lg:col-span-7">
