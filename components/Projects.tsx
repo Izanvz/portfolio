@@ -200,29 +200,6 @@ export default function Projects() {
           </FadeIn>
         </div>
 
-        <div className="md:col-span-2">
-          <FadeIn delay={0.18}>
-            <div className="p-px rounded-[22px] bg-gradient-to-r from-ink-700/30 via-amber/10 to-ink-700/30">
-              <div className="rounded-[21px] bg-ink-925 px-7 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
-                <div className="flex flex-wrap items-center gap-4 justify-between">
-                  <div className="flex items-center gap-4">
-                    <span className="inline-flex items-center gap-2 text-[11px] font-mono px-2.5 py-1 rounded-full border border-amber/20 bg-amber/[0.06] text-amber">
-                      <span className="relative flex h-1.5 w-1.5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber opacity-60" />
-                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-amber" />
-                      </span>
-                      En construcción
-                    </span>
-                    <h3 className="text-ink-100 font-semibold">MeetingAgentWeb</h3>
-                  </div>
-                  <p className="text-sm text-ink-500 max-w-xl">
-                    SaaS multi-tenant de MeetingAgent. Next.js · Clerk · Recall.ai · FastAPI — de pipeline local a producto cloud con usuarios reales.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </FadeIn>
-        </div>
       </div>
     </Section>
   );
