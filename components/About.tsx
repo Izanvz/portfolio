@@ -22,7 +22,7 @@ export default function About() {
       id="about"
       eyebrow="Sobre mí"
       title="Del modelo al producto"
-      subtitle="Construyo sistemas donde la IA se integra con criterio: pipelines, API, persistencia y entrega."
+      subtitle="Construyo sistemas donde la IA se integra con sentido: pipelines, API, persistencia y entrega."
     >
       <div className="grid lg:grid-cols-12 gap-8 items-start" role="region" aria-label="Sobre Izan Villarejo">
         <div className="lg:col-span-5 space-y-4">
