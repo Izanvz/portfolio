@@ -56,14 +56,6 @@ const groups: StackGroup[] = [
     core: false,
     coreItems: ["Docker"],
   },
-  {
-    title: "Interfaces & Tools",
-    symbol: "~",
-    desc: "Dashboards, visualización y utilidades de trabajo.",
-    items: ["Streamlit", "Power BI", "yt-dlp", "JSON/CSV export", "Dashboard web"],
-    core: false,
-    coreItems: ["Streamlit", "Power BI"],
-  },
 ];
 
 export default function Stack() {

@@ -30,8 +30,8 @@ export default function Contact() {
     <Section
       id="contact"
       eyebrow="Contacto"
-      title="Trabajemos juntos"
-      subtitle="Si tu producto necesita backend sólido o integración real de IA, hablemos."
+      title="Buscando trabajo activamente"
+      subtitle="Si tu equipo trabaja con Python, IA y necesitas a alguien que se ponga las pilas desde el día 1, escríbeme."
     >
       <div className="grid lg:grid-cols-12 gap-6 items-start">
         <div className="lg:col-span-7">
@@ -41,11 +41,11 @@ export default function Contact() {
                 <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-48 h-32 bg-amber/[0.06] rounded-full blur-3xl pointer-events-none" />
 
                 <h3 className="text-xl font-semibold text-ink-100 relative">
-                  Respondo rápido por email
+                  Disponible para incorporación inmediata
                 </h3>
                 <p className="mt-3 text-ink-400 leading-relaxed max-w-xl">
-                  Para entrevistas, colaboración técnica o proyectos donde haya que integrar IA en backend,
-                  envíame contexto y respondo con claridad.
+                  Busco un equipo donde construir sistemas reales con Python e IA — no demos, producto.
+                  Si tienes un reto técnico concreto, mándame contexto y hablamos.
                 </p>
 
                 <div className="mt-8 grid sm:grid-cols-2 gap-4">

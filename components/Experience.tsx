@@ -22,8 +22,12 @@ const education = [
 ];
 
 const certifications = [
-  { title: "Machine Learning Specialization", issuer: "DeepLearning.AI / Stanford", date: "Enero 2025" },
-  { title: "Unsupervised Learning, Recommenders, RL", issuer: "DeepLearning.AI / Stanford", date: "Enero 2025" },
+  {
+    title: "Machine Learning Specialization (3 cursos)",
+    issuer: "DeepLearning.AI / Stanford",
+    date: "2025",
+    link: "https://www.coursera.org/specializations/machine-learning-introduction",
+  },
 ];
 
 export default function Experience() {
@@ -117,7 +121,19 @@ export default function Experience() {
                           <p className="text-ink-100 font-medium text-sm">{cert.title}</p>
                           <p className="text-ink-500 text-sm mt-1">{cert.issuer}</p>
                         </div>
-                        <p className="text-ink-600 text-xs mt-4 font-mono">{cert.date}</p>
+                        <div className="flex items-center gap-3 mt-4">
+                          <p className="text-ink-600 text-xs font-mono">{cert.date}</p>
+                          {cert.link && (
+                            <a
+                              href={cert.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-xs text-amber/70 hover:text-amber transition-colors font-mono"
+                            >
+                              Coursera ↗
+                            </a>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>

@@ -32,6 +32,18 @@ const projects: Project[] = [
     featured: true,
   },
   {
+    title: "Sift",
+    desc: "Agente autónomo de investigación con LangGraph. Descompone consultas en subtemas, ejecuta búsquedas paralelas (web, RAG, arXiv) y sintetiza un informe estructurado con bucles de autocrítica y checkpoint humano antes de la entrega final.",
+    stack: ["Python", "LangGraph", "FastAPI", "ChromaDB", "Ollama"],
+    metrics: [
+      { value: "12 nodos", label: "grafo" },
+      { value: "3 bucles", label: "refinamiento" },
+      { value: "SSE", label: "streaming" },
+    ],
+    href: "https://github.com/Izanvz/Sift",
+    category: "LLM Agent",
+  },
+  {
     title: "VisuCheck",
     desc: "Pipeline modular para analizar imágenes de retail, extraer texto, detectar precios y marcas, y devolver JSON estructurado junto a una imagen anotada con los resultados.",
     stack: ["Python", "YOLOv8", "PaddleOCR", "FastAPI", "Streamlit"],
@@ -41,17 +53,6 @@ const projects: Project[] = [
     ],
     href: "https://github.com/Izanvz/VisuCheck",
     category: "Computer Vision",
-  },
-  {
-    title: "BTC-Pred",
-    desc: "Comparativa de modelos de ML clásico para predecir Bitcoin con datos de CoinGecko, indicadores técnicos y un pipeline reproducible de feature engineering, entrenamiento y evaluación.",
-    stack: ["Python", "XGBoost", "LightGBM", "Scikit-learn", "Pandas"],
-    metrics: [
-      { value: "R² 0.645", label: "mejor modelo" },
-      { value: "GridSearchCV", label: "optimización" },
-    ],
-    href: "https://github.com/Izanvz/BTC-Pred",
-    category: "Time Series",
   },
   {
     title: "AudioSmart",
@@ -150,8 +151,7 @@ function ProjectCard({ project, large = false, compact = false }: { project: Pro
 }
 
 export default function Projects() {
-  const [featured, ...rest] = projects;
-  const [visuCheck, btcPred, audioSmart] = rest;
+  const [meetingAgent, sift, visuCheck, audioSmart] = projects;
 
   return (
     <Section
@@ -163,13 +163,13 @@ export default function Projects() {
       <div className="grid gap-4 md:grid-cols-[1.65fr_0.95fr]">
         <div>
           <FadeIn>
-            <ProjectCard project={featured} large />
+            <ProjectCard project={meetingAgent} large />
           </FadeIn>
         </div>
 
         <div>
           <FadeIn delay={0.06}>
-            <ProjectCard project={btcPred} compact />
+            <ProjectCard project={sift} compact />
           </FadeIn>
         </div>
 

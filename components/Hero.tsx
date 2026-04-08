@@ -90,7 +90,6 @@ export default function Hero() {
           "[data-hero='role']",
           "[data-hero='desc']",
           "[data-hero='cta']",
-          "[data-hero='stats']",
           "[data-hero='panel']",
         ],
         { opacity: 0, y: 24, filter: "blur(12px)" }
@@ -104,8 +103,7 @@ export default function Hero() {
         .to("[data-hero='role']", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55 }, "-=0.44")
         .to("[data-hero='desc']", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55 }, "-=0.36")
         .to("[data-hero='cta']", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5 }, "-=0.32")
-        .to("[data-hero='stats']", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55 }, "-=0.28")
-        .to("[data-hero='panel']", { opacity: 1, x: 0, y: 0, filter: "blur(0px)", duration: 0.8 }, "-=0.72");
+        .to("[data-hero='panel']", { opacity: 1, x: 0, y: 0, filter: "blur(0px)", duration: 0.8 }, "-=0.44");
     }, rootRef);
 
     const root = rootRef.current;
@@ -220,21 +218,6 @@ export default function Hero() {
               </a>
             </div>
 
-            <div
-              data-hero="stats"
-              className="mt-12 pt-8 border-t border-ink-800/50 grid grid-cols-3 gap-6"
-            >
-              {[
-                { value: "4+", label: "Proyectos con IA" },
-                { value: "Python", label: "Stack core" },
-                { value: "ML Cert.", label: "DeepLearning.AI" },
-              ].map((s) => (
-                <div key={`${s.value}-${s.label}`}>
-                  <p className="text-lg font-semibold font-mono text-ink-100 tracking-tight">{s.value}</p>
-                  <p className="text-[11px] text-ink-500 mt-0.5">{s.label}</p>
-                </div>
-              ))}
-            </div>
           </div>
 
           <div data-hero="panel" className="hidden lg:block">

@@ -3,16 +3,16 @@ import Section from "@/components/Section";
 
 const proof = [
   {
-    title: "Automatización real",
-    desc: "Sustituyo procesos manuales recurrentes por pipelines de IA integrados en producto, con salidas estructuradas listas para consumo.",
+    title: "40h/mes automatizadas en TESI",
+    desc: "Reemplacé un proceso 100% manual con un pipeline de IA: el usuario sube audio y obtiene transcripción, resumen y keywords en minutos, sin intervención humana.",
   },
   {
-    title: "Arquitectura limpia",
-    desc: "Separo con criterio la capa de IA, la API, la persistencia y la lógica de negocio para que el sistema sea mantenible y escalable.",
+    title: "LLM con rol concreto, no control total",
+    desc: "Diseño agentes con LangGraph donde cada nodo tiene responsabilidad definida. El LLM extrae — SQLite guarda, ChromaDB indexa, FastAPI sirve.",
   },
   {
-    title: "Impacto medible",
-    desc: "Reduzco tiempo operativo en tareas de análisis, transcripción y enriquecimiento semántico sin perder trazabilidad técnica.",
+    title: "Local-first por defecto",
+    desc: "Mis proyectos corren en tu máquina sin APIs de pago. WhisperX + Mistral 7B locales antes de ir a la nube.",
   },
 ];
 
@@ -81,7 +81,7 @@ export default function About() {
               <div className="rounded-[21px] bg-ink-925 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
                 <p className="text-[10px] font-mono uppercase tracking-widest text-ink-500">Filosofía</p>
                 <p className="mt-3 text-ink-200 leading-relaxed">
-                  La IA no es el producto. El sistema que la integra correctamente sí lo es.
+                  La IA no es el producto. El sistema que la integra correctamente sí lo es. Por eso en MeetingAgent el LLM extrae, pero SQLite guarda, ChromaDB indexa y FastAPI sirve — cada capa con su responsabilidad.
                 </p>
               </div>
             </div>
