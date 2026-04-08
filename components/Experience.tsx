@@ -27,7 +27,7 @@ const certifications = [
     issuer: "DeepLearning.AI / Stanford",
     date: "2025",
     link: "https://coursera.org/share/f9fc5f7b5c7b2ca720c940a04aedc160",
-    desc: "Supervised ML, redes neuronales, algoritmos de optimización, sistemas de recomendación y aprendizaje por refuerzo.",
+    desc: ["Supervised ML", "Redes neuronales", "Algoritmos de optimización", "Sistemas de recomendación", "Aprendizaje por refuerzo"],
   },
 ];
 
@@ -122,7 +122,14 @@ export default function Experience() {
                           <p className="text-ink-100 font-medium text-sm">{cert.title}</p>
                           <p className="text-ink-500 text-sm mt-1">{cert.issuer}</p>
                           {cert.desc && (
-                            <p className="text-ink-600 text-xs mt-2.5 leading-relaxed">{cert.desc}</p>
+                            <ul className="mt-2.5 space-y-1">
+                              {cert.desc.map((item) => (
+                                <li key={item} className="flex items-center gap-1.5 text-xs text-ink-600">
+                                  <span className="text-amber/50 text-[8px]">◆</span>
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
                           )}
                         </div>
                         <div className="flex items-center gap-3 mt-4">
