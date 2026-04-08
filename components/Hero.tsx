@@ -183,8 +183,7 @@ export default function Hero() {
               data-hero="desc"
               className="mt-5 text-ink-400 leading-relaxed max-w-[42ch] text-base md:text-lg"
             >
-              En TESI automaticé 40h/mes de trabajo manual con un pipeline Whisper + GPT-4.
-              Construyo sistemas donde la IA tiene un rol concreto — no control total — sobre el flujo.
+              Implemento IA en cualquier entorno que lo necesite. Automatizo lo que se hace a mano, optimizo lo que ya funciona y desarrollo el código a medida. ¿Local o nube? Yo me adapto.
             </p>
 
             <div data-hero="cta" className="mt-8 flex flex-wrap gap-3">
