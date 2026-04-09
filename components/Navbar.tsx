@@ -1,22 +1,30 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 
 const EASE: [number, number, number, number] = [0.32, 0.72, 0, 1];
 
-const navLinks = [
-  { href: "#about", label: "Sobre mí" },
-  { href: "#projects", label: "Proyectos" },
-  { href: "#experience", label: "Experiencia" },
-  { href: "#stack", label: "Stack" },
-  { href: "#contact", label: "Contacto" },
+const NAV_ANCHORS = [
+  { anchor: "#about", label: "Sobre mí" },
+  { anchor: "#projects", label: "Proyectos" },
+  { anchor: "#experience", label: "Experiencia" },
+  { anchor: "#stack", label: "Stack" },
+  { anchor: "#contact", label: "Contacto" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
+  const navLinks = NAV_ANCHORS.map(({ anchor, label }) => ({
+    href: isHome ? anchor : `/${anchor}`,
+    label,
+  }));
 
   useMotionValueEvent(scrollY, "change", (y) => setScrolled(y > 30));
 
@@ -32,7 +40,7 @@ export default function Navbar() {
           }`}
         >
           <a
-            href="#"
+            href={isHome ? "#" : "/"}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-full hover:bg-ink-900/60 transition-colors"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-amber" />

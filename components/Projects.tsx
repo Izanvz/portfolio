@@ -1,10 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import Section from "@/components/Section";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
+const MotionLink = motion(Link);
 
 type Metric = { value: string; label: string };
 type Project = {
@@ -13,6 +16,7 @@ type Project = {
   stack: string[];
   metrics: Metric[];
   href: string;
+  slug?: string;
   category: string;
   featured?: boolean;
   wip?: boolean;
@@ -21,7 +25,7 @@ type Project = {
 const projects: Project[] = [
   {
     title: "MeetingAgent",
-    desc: "Problema: las reuniones se pierden. Solución: pipeline local que las convierte en texto, resumen y tareas accionables en menos de 2 minutos. Agente local-first con Whisper, LangGraph y LLMs — historial en SQLite + ChromaDB, API y búsqueda semántica.",
+    desc: "Pipeline local que convierte audio de reuniones en resumen, decisiones y tareas accionables en menos de 2 minutos. Coste de API: 0 €.",
     stack: ["Python", "FastAPI", "LangGraph", "Whisper", "ChromaDB", "Docker"],
     metrics: [
       { value: "< 2 min", label: "tiempo por reunión" },
@@ -29,12 +33,13 @@ const projects: Project[] = [
       { value: "local-first", label: "modo" },
     ],
     href: "https://github.com/Izanvz/MeetingAgent",
+    slug: "meetingagent",
     category: "LLM System",
     featured: true,
   },
   {
     title: "Sift",
-    desc: "Problema: la investigación profunda lleva horas. Solución: agente que descompone la consulta, lanza búsquedas paralelas (web, RAG, arXiv), sintetiza y se auto-critica antes de pasar por un checkpoint humano.",
+    desc: "Agente que descompone consultas complejas, busca en paralelo en web + RAG + arXiv, sintetiza y se auto-critica — con checkpoint humano antes del resultado final.",
     stack: ["Python", "LangGraph", "FastAPI", "ChromaDB", "Ollama"],
     metrics: [
       { value: "12 nodos", label: "grafo LangGraph" },
@@ -42,12 +47,13 @@ const projects: Project[] = [
       { value: "human-in-loop", label: "checkpoint" },
     ],
     href: "https://github.com/Izanvz/Sift",
+    slug: "sift",
     category: "LLM Agent",
     wip: true,
   },
   {
     title: "VisuCheck",
-    desc: "Problema: auditar lineales de retail requiere inspección manual. Solución: pipeline de visión que devuelve JSON estructurado con imagen anotada. YOLOv8 para detección, PaddleOCR para texto, FastAPI para la API.",
+    desc: "Pipeline de visión que detecta productos y huecos en lineales de retail. Devuelve JSON estructurado e imagen anotada — sin revisión manual.",
     stack: ["Python", "YOLOv8", "PaddleOCR", "FastAPI", "Streamlit"],
     metrics: [
       { value: "imagen retail", label: "input" },
@@ -55,11 +61,12 @@ const projects: Project[] = [
       { value: "0 h", label: "revisión manual" },
     ],
     href: "https://github.com/Izanvz/VisuCheck",
+    slug: "visucheck",
     category: "Computer Vision",
   },
   {
     title: "AudioSmart",
-    desc: "Problema: analizar audio manualmente es lento y caro. Solución: pipeline 100% local con WhisperX + LLM que procesa desde YouTube o archivo. Predecesor de MeetingAgent — análisis de audio general-purpose, sin restricción a reuniones.",
+    desc: "Pipeline 100% local: WhisperX + LLM que transcribe, diariza y resume cualquier audio desde YouTube o archivo. Predecesor de MeetingAgent.",
     stack: ["Python", "WhisperX", "Mistral 7B", "Streamlit", "yt-dlp"],
     metrics: [
       { value: "YouTube / archivo", label: "fuente" },
@@ -67,21 +74,22 @@ const projects: Project[] = [
       { value: "transcripción + resumen", label: "output" },
     ],
     href: "https://github.com/Izanvz/AudioSmart",
+    slug: "audiosmart",
     category: "Audio Pipeline",
   },
 ];
 
 function ProjectCard({ project, large = false, compact = false }: { project: Project; large?: boolean; compact?: boolean }) {
-  return (
-    <motion.a
-      href={project.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      whileHover={{ y: -5 }}
-      whileTap={{ scale: 0.99 }}
-      transition={{ duration: 0.3, ease: EASE }}
-      className="group block h-full p-px rounded-[26px] bg-gradient-to-b from-ink-700/55 to-transparent hover:from-amber/25 transition-all duration-500"
-    >
+  const cardClass = "group block h-full p-px rounded-[26px] bg-gradient-to-b from-ink-700/55 to-transparent hover:from-amber/25 transition-all duration-500";
+  const motionProps = {
+    whileHover: { y: -5 },
+    whileTap: { scale: 0.99 },
+    transition: { duration: 0.3, ease: EASE },
+    className: cardClass,
+  };
+
+  const inner = (
+    <>
       <div className="h-full rounded-[25px] bg-ink-925 overflow-hidden shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] group-hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_50px_oklch(75%_0.108_170_/_0.09)] transition-shadow duration-500">
         <div
           className={`h-px w-full transition-colors duration-300 ${
@@ -164,6 +172,25 @@ function ProjectCard({ project, large = false, compact = false }: { project: Pro
           </div>
         </div>
       </div>
+    </>
+  );
+
+  if (project.slug) {
+    return (
+      <MotionLink href={`/projects/${project.slug}`} {...motionProps}>
+        {inner}
+      </MotionLink>
+    );
+  }
+
+  return (
+    <motion.a
+      href={project.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      {...motionProps}
+    >
+      {inner}
     </motion.a>
   );
 }

@@ -87,10 +87,11 @@ export default function Hero() {
     const ctx = gsap.context(() => {
       gsap.set(
         [
-          "[data-hero='badge']",
+          "[data-hero='name']",
           "[data-hero='title']",
-          "[data-hero='role']",
+          "[data-hero='badge']",
           "[data-hero='desc']",
+          "[data-hero='stack']",
           "[data-hero='cta']",
           "[data-hero='panel']",
         ],
@@ -100,11 +101,12 @@ export default function Hero() {
       gsap.set("[data-hero='panel']", { x: 28 });
 
       gsap.timeline({ defaults: { ease: "power3.out" } })
-        .to("[data-hero='title']", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.78 })
-        .to("[data-hero='role']", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55 }, "-=0.44")
-        .to("[data-hero='badge']", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55 }, "-=0.18")
-        .to("[data-hero='desc']", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55 }, "-=0.36")
-        .to("[data-hero='cta']", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5 }, "-=0.32")
+        .to("[data-hero='name']",  { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5 })
+        .to("[data-hero='title']", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.78 }, "-=0.3")
+        .to("[data-hero='badge']", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55 }, "-=0.3")
+        .to("[data-hero='desc']",  { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55 }, "-=0.3")
+        .to("[data-hero='stack']", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5  }, "-=0.3")
+        .to("[data-hero='cta']",   { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5  }, "-=0.3")
         .to("[data-hero='panel']", { opacity: 1, x: 0, y: 0, filter: "blur(0px)", duration: 0.8 }, "-=0.44");
     }, rootRef);
 
@@ -152,24 +154,26 @@ export default function Hero() {
       <div className="max-w-6xl mx-auto px-6 md:px-8 w-full">
         <div className="grid lg:grid-cols-[1fr_460px] gap-10 xl:gap-16 items-center">
           <div>
-            <h1
-              data-hero="title"
-              className="font-semibold leading-[0.98] tracking-tight text-ink-50"
-              style={{ fontSize: "clamp(3.35rem, 7vw + 1rem, 5.8rem)" }}
-            >
-              Izan
-              <br />
-              <span className="text-ink-300">Villarejo</span>
-            </h1>
-
             <p
-              data-hero="role"
-              className="mt-4 text-xl md:text-2xl text-amber font-medium tracking-tight"
+              data-hero="name"
+              className="font-mono text-sm text-ink-600 tracking-[0.12em] mb-5"
             >
-              AI Engineer · Backend Developer
+              Izan Villarejo
             </p>
 
-            <div data-hero="badge" className="mt-5">
+            <h1
+              data-hero="title"
+              className="font-semibold leading-[1.02] tracking-tight text-ink-50"
+              style={{ fontSize: "clamp(2.6rem, 5.5vw + 1rem, 5rem)" }}
+            >
+              Construyo agentes
+              <br />
+              <span className="text-ink-300">de IA que automatizan</span>
+              <br />
+              <span className="text-amber">trabajo real</span>
+            </h1>
+
+            <div data-hero="badge" className="mt-6">
               <span className="inline-flex items-center gap-2 text-xs text-ink-200 border border-amber/18 bg-[linear-gradient(90deg,oklch(11.5%_0.009_240_/_0.9),oklch(13.5%_0.028_190_/_0.72))] px-3 py-1.5 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber opacity-60" />
@@ -183,7 +187,14 @@ export default function Hero() {
               data-hero="desc"
               className="mt-5 text-ink-400 leading-relaxed max-w-[42ch] text-base md:text-lg"
             >
-              Implemento IA en cualquier entorno que lo necesite. Automatizo lo que se hace a mano, optimizo lo que ya funciona y desarrollo el código a medida. ¿Local o nube? Yo me adapto.
+              Desde pipelines backend hasta sistemas autónomos con LLMs, diseñados para producción y no para demos.
+            </p>
+
+            <p
+              data-hero="stack"
+              className="mt-4 font-mono text-[12px] text-ink-500 tracking-wide"
+            >
+              Python · FastAPI · LangGraph · OpenAI / LLMs · Docker · APIs · Automation
             </p>
 
             <div data-hero="cta" className="mt-8 flex flex-wrap gap-3">
@@ -197,22 +208,12 @@ export default function Hero() {
                 </span>
               </a>
               <a
-                href="https://github.com/Izanvz"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#contact"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-ink-700/60 text-ink-300 hover:border-amber/30 hover:text-ink-100 hover:bg-ink-900/50 transition-all"
               >
-                GitHub ↗
-              </a>
-              <a
-                href="/cv.pdf"
-                download
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-ink-700/60 text-ink-400 hover:border-amber/30 hover:text-ink-100 transition-all text-sm"
-              >
-                CV ↓
+                Contactar
               </a>
             </div>
-
           </div>
 
           <div data-hero="panel" className="hidden lg:block">
