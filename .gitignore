@@ -49,3 +49,5 @@ node_modules
 
 # local tooling state
 .swarm/
+docs/
+.claude/
