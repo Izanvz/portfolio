@@ -12,7 +12,7 @@ const FORMSPREE_ID = ""; // Configura en formspree.io y pega aquí tu ID
 const summary = [
   { k: "Qué hago", v: "Integro modelos de IA en arquitecturas backend mantenibles y listas para producción." },
   { k: "En qué soy fuerte", v: "Diseño de pipelines, APIs robustas con FastAPI y automatización de procesos empresariales." },
-  { k: "Tipo de proyectos", v: "Audio, NLP, computer vision, agentes y modelos predictivos conectados a producto." },
+  { k: "Tipo de proyectos", v: "Agentes LLM, pipelines de audio y NLP, y sistemas backend conectados a producto." },
   { k: "Disponibilidad", v: "España remoto · Gandía, Valencia híbrido o presencial" },
 ];
 

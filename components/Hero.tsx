@@ -194,7 +194,7 @@ export default function Hero() {
               data-hero="stack"
               className="mt-4 font-mono text-[12px] text-ink-500 tracking-wide"
             >
-              Python · FastAPI · LangGraph · OpenAI / LLMs · Docker · APIs · Automation
+              Python · FastAPI · LangGraph · Ollama · LLMs locales · Docker · APIs
             </p>
 
             <div data-hero="cta" className="mt-8 flex flex-wrap gap-3">

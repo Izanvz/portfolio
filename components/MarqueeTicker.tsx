@@ -1,8 +1,7 @@
 const STACK = [
   "Python", "FastAPI", "LangGraph", "WhisperX", "Docker",
-  "ChromaDB", "PyTorch", "Ollama", "Mistral 7B", "YOLOv8",
-  "SQLite", "PaddleOCR", "LangChain", "Whisper",
-  "Scikit-learn", "XGBoost", "MySQL", "Docker Compose", "OpenAPI",
+  "ChromaDB", "Ollama", "Mistral 7B", "SQLite",
+  "Whisper", "MySQL", "Docker Compose", "OpenAPI", "PyTorch",
 ];
 
 function Sep() {

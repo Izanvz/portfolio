@@ -58,11 +58,6 @@ export default function About() {
                     me interesa integrarlos correctamente en sistemas que funcionen en producción.
                   </p>
                   <p>
-                    Mi recorrido comenzó con DAM y se consolidó en la especialización en IA y Big Data,
-                    donde profundicé en <span className="text-ink-100">Machine Learning, Deep Learning y modelado predictivo</span>.
-                    También trabajé con <span className="text-ink-100">Power BI, Grafana, Kafka y Elasticsearch</span>.
-                  </p>
-                  <p>
                     Integro modelos en arquitecturas backend reales: diseño el pipeline, construyo la API,
                     defino la persistencia y lo orquesto todo con <span className="text-ink-100">Docker Compose</span>.
                     Cuando el problema lo requiere, diseño agentes con <span className="text-amber font-medium">LangGraph</span>:
