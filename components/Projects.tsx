@@ -83,7 +83,7 @@ function parseMetric(value: string) {
 
 function CountUp({ target, active }: { target: number; active: boolean }) {
   const [val, setVal] = useState(0);
-  const rafRef = useRef<number>();
+  const rafRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     if (!active) return;
