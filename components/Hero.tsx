@@ -260,6 +260,7 @@ export default function Hero() {
     if (!rootRef.current) return;
 
     const ctx = gsap.context(() => {
+      // — Entrance animations —
       gsap.set(
         ["[data-hero='name']", "[data-hero='desc']", "[data-hero='stack']", "[data-hero='cta']", "[data-hero='panel']"],
         { opacity: 0, y: 24, filter: "blur(12px)" }
@@ -272,6 +273,20 @@ export default function Hero() {
         .to("[data-hero='stack']", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5  }, 1.74)
         .to("[data-hero='cta']",   { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5  }, 1.86)
         .to("[data-hero='panel']", { opacity: 1, x: 0, y: 0, filter: "blur(0px)", duration: 0.8 }, 1.62);
+
+      if (!reduce) {
+        // — Parallax on scroll: bg lags behind, panel slightly —
+        gsap.to("[data-parallax='bg']", {
+          y: "28%",
+          ease: "none",
+          scrollTrigger: { trigger: rootRef.current, start: "top top", end: "bottom top", scrub: 0.6 },
+        });
+        gsap.to("[data-parallax='panel']", {
+          y: "10%",
+          ease: "none",
+          scrollTrigger: { trigger: rootRef.current, start: "top top", end: "bottom top", scrub: 0.6 },
+        });
+      }
     }, rootRef);
 
     return () => ctx.revert();
@@ -287,7 +302,7 @@ export default function Hero() {
       {!reduce && <GraphBackground />}
 
       {/* Static bg decorations */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
+      <div data-parallax="bg" className="absolute inset-0 -z-10 pointer-events-none">
         <div className="absolute -top-48 -left-52 w-[760px] h-[760px] rounded-full bg-amber/[0.06] blur-[170px]" />
         <div className="absolute -bottom-52 -right-44 w-[620px] h-[620px] rounded-full bg-[oklch(32%_0.03_205_/_0.16)] blur-[170px]" />
         <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(to_right,oklch(78%_0.006_220_/_0.12)_1px,transparent_1px),linear-gradient(to_bottom,oklch(78%_0.006_220_/_0.12)_1px,transparent_1px)] [background-size:58px_58px]" />
@@ -361,7 +376,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div data-hero="panel" className="hidden lg:block">
+          <div data-hero="panel" data-parallax="panel" className="hidden lg:block">
             <a
               href="https://meeting-agent-web.vercel.app/"
               target="_blank"

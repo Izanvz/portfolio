@@ -1,53 +1,82 @@
-import type { ReactNode } from "react";
-import FadeIn from "@/components/FadeIn";
+"use client";
+
+import { useEffect, useRef, type ReactNode } from "react";
+import { useReducedMotion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Section({
-  id,
-  eyebrow,
-  title,
-  subtitle,
-  index,
-  children,
+  id, eyebrow, title, subtitle, index, children,
 }: {
-  id?: string;
-  eyebrow?: string;
-  title: string;
-  subtitle?: string;
-  index?: number;
-  children: ReactNode;
+  id?: string; eyebrow?: string; title: string;
+  subtitle?: string; index?: number; children: ReactNode;
 }) {
-  const num = index !== undefined ? String(index).padStart(2, "0") : null;
+  const num       = index !== undefined ? String(index).padStart(2, "0") : null;
+  const headerRef = useRef<HTMLDivElement>(null);
+  const reduce    = useReducedMotion();
+
+  useEffect(() => {
+    if (reduce || !headerRef.current) return;
+
+    const els = headerRef.current.querySelectorAll<HTMLElement>("[data-reveal]");
+
+    gsap.set(els, { y: "108%", opacity: 0 });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: headerRef.current,
+        start: "top 88%",
+        once: true,
+      },
+    });
+
+    els.forEach((el, i) => {
+      tl.to(el, { y: "0%", opacity: 1, duration: 0.75, ease: "power3.out" }, i * 0.1);
+    });
+
+    return () => { tl.kill(); };
+  }, [reduce]);
 
   return (
     <section id={id} className="py-28 md:py-36 border-t border-ink-800/40">
       <div className="max-w-6xl mx-auto px-6 md:px-8">
-        <FadeIn direction="none" blur={4} delay={0.05}>
-          <div className="relative mb-14">
-            {num && (
-              <span
-                aria-hidden="true"
-                className="absolute -top-6 right-0 font-semibold leading-none select-none pointer-events-none text-ink-800/30"
-                style={{ fontSize: "clamp(5rem, 14vw, 10rem)" }}
-              >
-                {num}
-              </span>
-            )}
-            {eyebrow && (
-              <p className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.18em] text-amber mb-4">
+        <div ref={headerRef} className="relative mb-14">
+          {num && (
+            <span
+              aria-hidden="true"
+              className="absolute -top-6 right-0 font-semibold leading-none select-none pointer-events-none text-ink-800/30"
+              style={{ fontSize: "clamp(5rem, 14vw, 10rem)" }}
+            >
+              {num}
+            </span>
+          )}
+
+          {eyebrow && (
+            <div className="overflow-hidden mb-4">
+              <p data-reveal className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.18em] text-amber">
                 <span className="block w-4 h-px bg-amber/60" />
                 {eyebrow}
               </p>
-            )}
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-ink-100">
+            </div>
+          )}
+
+          <div className="overflow-hidden">
+            <h2 data-reveal className="text-4xl md:text-5xl font-semibold tracking-tight text-ink-100">
               {title}
             </h2>
-            {subtitle && (
-              <p className="mt-4 text-ink-400 max-w-2xl leading-relaxed text-base md:text-lg">
+          </div>
+
+          {subtitle && (
+            <div className="overflow-hidden mt-4">
+              <p data-reveal className="text-ink-400 max-w-2xl leading-relaxed text-base md:text-lg">
                 {subtitle}
               </p>
-            )}
-          </div>
-        </FadeIn>
+            </div>
+          )}
+        </div>
+
         {children}
       </div>
     </section>
