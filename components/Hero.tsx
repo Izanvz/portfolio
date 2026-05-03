@@ -252,9 +252,8 @@ function PipelinePanel() {
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
 export default function Hero() {
-  const reduce       = useReducedMotion();
-  const rootRef      = useRef<HTMLElement>(null);
-  const spotlightRef = useRef<HTMLDivElement>(null);
+  const reduce  = useReducedMotion();
+  const rootRef = useRef<HTMLElement>(null);
   const [badgeVisible, setBadgeVisible] = useState(false);
 
   useEffect(() => {
@@ -267,7 +266,6 @@ export default function Hero() {
       );
       gsap.set("[data-hero='panel']", { x: 28 });
 
-      // Timing: name first, then rest overlaps with streaming (~1.6s mark)
       gsap.timeline({ defaults: { ease: "power3.out" } })
         .to("[data-hero='name']",  { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5 })
         .to("[data-hero='desc']",  { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55 }, 1.62)
@@ -276,19 +274,6 @@ export default function Hero() {
         .to("[data-hero='panel']", { opacity: 1, x: 0, y: 0, filter: "blur(0px)", duration: 0.8 }, 1.62);
     }, rootRef);
 
-    const root = rootRef.current;
-    const spot = spotlightRef.current;
-    if (root && spot) {
-      const mx = gsap.quickTo(spot, "x", { duration: 0.35, ease: "power3.out" });
-      const my = gsap.quickTo(spot, "y", { duration: 0.35, ease: "power3.out" });
-      const onMove = (e: MouseEvent) => {
-        const b = root.getBoundingClientRect();
-        mx(e.clientX - b.left - b.width  * 0.5);
-        my(e.clientY - b.top  - b.height * 0.5);
-      };
-      root.addEventListener("mousemove", onMove);
-      return () => { root.removeEventListener("mousemove", onMove); ctx.revert(); };
-    }
     return () => ctx.revert();
   }, [reduce]);
 
@@ -307,10 +292,6 @@ export default function Hero() {
         <div className="absolute -bottom-52 -right-44 w-[620px] h-[620px] rounded-full bg-[oklch(32%_0.03_205_/_0.16)] blur-[170px]" />
         <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(to_right,oklch(78%_0.006_220_/_0.12)_1px,transparent_1px),linear-gradient(to_bottom,oklch(78%_0.006_220_/_0.12)_1px,transparent_1px)] [background-size:58px_58px]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_28%,oklch(7.2%_0.007_244)_82%)]" />
-        <div
-          ref={spotlightRef}
-          className="hidden md:block absolute left-1/2 top-1/2 w-[440px] h-[440px] rounded-full bg-[radial-gradient(circle,oklch(74%_0.108_170_/_0.18),transparent_64%)] blur-[90px]"
-        />
       </div>
 
       <div className="max-w-6xl mx-auto px-6 md:px-8 w-full">
