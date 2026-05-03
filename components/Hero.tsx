@@ -312,12 +312,14 @@ export default function Hero() {
       <div className="max-w-6xl mx-auto px-6 md:px-8 w-full">
         <div className="grid lg:grid-cols-[1fr_460px] gap-10 xl:gap-16 items-center">
           <div>
-            <p
-              data-hero="name"
-              className="font-mono text-sm text-ink-600 tracking-[0.12em] mb-5"
-            >
-              Izan Villarejo
-            </p>
+            <div data-hero="name" className="mb-6">
+              <p className="text-2xl md:text-3xl font-semibold tracking-tight text-ink-100">
+                Izan Villarejo
+              </p>
+              <p className="font-mono text-[11px] text-amber uppercase tracking-[0.16em] mt-1.5">
+                Backend &amp; AI Engineer
+              </p>
+            </div>
 
             <h1
               className="font-semibold leading-[1.02] tracking-tight"
