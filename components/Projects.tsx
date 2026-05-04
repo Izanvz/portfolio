@@ -40,6 +40,7 @@ const projects: Project[] = [
     stack: ["Python", "LangGraph", "FastAPI", "ChromaDB", "Ollama"],
     metrics: [
       { value: "12 nodos",    label: "grafo LangGraph" },
+      { value: "3 fuentes",   label: "web · RAG · arXiv" },
       { value: "human-in-loop", label: "checkpoint"    },
     ],
     href: "https://github.com/Izanvz/Sift",
@@ -235,7 +236,11 @@ function ProjectCard({
                 <div key={m.label} className="rounded-[14px] border border-ink-700 bg-ink-950/60 px-3.5 py-2.5 flex flex-col gap-0.5">
                   <p className={`font-mono text-amber font-semibold leading-none ${large ? "text-lg" : "text-base"}`}>
                     {parsed.number !== null ? (
-                      <>{parsed.prefix}<CountAnimate target={parsed.number} active={revealed} />{parsed.suffix}</>
+                      (parsed.number === 0 || parsed.number > 5) ? (
+                        <>{parsed.prefix}<CountAnimate target={parsed.number} active={revealed} />{parsed.suffix}</>
+                      ) : (
+                        m.value
+                      )
                     ) : (
                       m.value
                     )}
