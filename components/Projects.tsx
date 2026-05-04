@@ -85,7 +85,7 @@ function CountAnimate({ target, active }: { target: number; active: boolean }) {
   // Números bajos (≤5): cuenta hacia atrás desde un valor alto → más impacto visual
   // Números altos (>5): cuenta hacia arriba desde 0 (comportamiento original)
   const countDown = target <= 5;
-  const from      = countDown ? Math.max(target + 9, 10) : 0;
+  const from      = countDown ? Math.max(target + 18, 20) : 0;
 
   const [val, setVal] = useState(() => countDown ? from : 0);
   const rafRef = useRef<number | undefined>(undefined);
@@ -95,7 +95,7 @@ function CountAnimate({ target, active }: { target: number; active: boolean }) {
     const start = performance.now();
     const ease  = (t: number) => 1 - Math.pow(1 - t, 3);
     const tick  = (now: number) => {
-      const t = Math.min(1, (now - start) / 1100);
+      const t = Math.min(1, (now - start) / 1600);
       setVal(countDown
         ? Math.round(from - (from - target) * ease(t))
         : Math.round(target * ease(t))
