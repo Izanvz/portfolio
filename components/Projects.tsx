@@ -40,7 +40,6 @@ const projects: Project[] = [
     stack: ["Python", "LangGraph", "FastAPI", "ChromaDB", "Ollama"],
     metrics: [
       { value: "12 nodos",    label: "grafo LangGraph" },
-      { value: "3 fuentes",   label: "web · RAG · arXiv" },
       { value: "human-in-loop", label: "checkpoint"    },
     ],
     href: "https://github.com/Izanvz/Sift",
