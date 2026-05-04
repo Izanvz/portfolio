@@ -72,7 +72,7 @@ const projects: Project[] = [
   },
 ];
 
-// ─── CountUp ──────────────────────────────────────────────────────────────────
+// ─── CountAnimate ──────────────────────────────────────────────────────────────────
 
 function parseMetric(value: string) {
   const m = value.match(/^(\D*?)(\d+(?:[.,]\d+)?)(.*)$/);
@@ -81,8 +81,13 @@ function parseMetric(value: string) {
   return { prefix, number: parseFloat(num.replace(",", ".")), suffix };
 }
 
-function CountUp({ target, active }: { target: number; active: boolean }) {
-  const [val, setVal] = useState(0);
+function CountAnimate({ target, active }: { target: number; active: boolean }) {
+  // Números bajos (≤5): cuenta hacia atrás desde un valor alto → más impacto visual
+  // Números altos (>5): cuenta hacia arriba desde 0 (comportamiento original)
+  const countDown = target <= 5;
+  const from      = countDown ? Math.max(target + 9, 10) : 0;
+
+  const [val, setVal] = useState(() => countDown ? from : 0);
   const rafRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
@@ -91,12 +96,15 @@ function CountUp({ target, active }: { target: number; active: boolean }) {
     const ease  = (t: number) => 1 - Math.pow(1 - t, 3);
     const tick  = (now: number) => {
       const t = Math.min(1, (now - start) / 1100);
-      setVal(Math.round(target * ease(t)));
+      setVal(countDown
+        ? Math.round(from - (from - target) * ease(t))
+        : Math.round(target * ease(t))
+      );
       if (t < 1) rafRef.current = requestAnimationFrame(tick);
     };
     rafRef.current = requestAnimationFrame(tick);
     return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
-  }, [active, target]);
+  }, [active, target, from, countDown]);
 
   return <span style={{ fontVariantNumeric: "tabular-nums" }}>{val.toLocaleString("es-ES")}</span>;
 }
@@ -220,7 +228,7 @@ function ProjectCard({
             {project.desc}
           </p>
 
-          {/* Metrics with CountUp */}
+          {/* Metrics with CountAnimate */}
           <div className={`flex flex-wrap gap-2 ${large ? "mt-6" : compact ? "mt-3.5" : "mt-5"}`}>
             {project.metrics.map((m) => {
               const parsed = parseMetric(m.value);
@@ -228,7 +236,7 @@ function ProjectCard({
                 <div key={m.label} className="rounded-[14px] border border-ink-700 bg-ink-950/60 px-3.5 py-2.5 flex flex-col gap-0.5">
                   <p className={`font-mono text-amber font-semibold leading-none ${large ? "text-lg" : "text-base"}`}>
                     {parsed.number !== null ? (
-                      <>{parsed.prefix}<CountUp target={parsed.number} active={revealed} />{parsed.suffix}</>
+                      <>{parsed.prefix}<CountAnimate target={parsed.number} active={revealed} />{parsed.suffix}</>
                     ) : (
                       m.value
                     )}
