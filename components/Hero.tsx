@@ -185,6 +185,11 @@ function StreamingHeadline({ skip, onDone }: { skip: boolean; onDone: () => void
 
 // ─── Pipeline panel ───────────────────────────────────────────────────────────
 
+// Timing constants — keep in sync with the GSAP timeline below
+const PANEL_DELAY  = 0.5;   // s: when panel starts entering
+const PANEL_DUR    = 0.55;  // s: panel fade-in duration
+const PANEL_APPEAR = PANEL_DELAY + PANEL_DUR + 0.1; // s: safe start for inner lines
+
 const PIPELINE_LINES = [
   { text: "$ meeting-agent --input reunion.mp3",  cls: "text-amber"    },
   { text: "",                                      cls: ""              },
@@ -221,12 +226,12 @@ function PipelinePanel() {
               <div className="font-mono text-[12px] leading-relaxed space-y-1">
                 {PIPELINE_LINES.map((line, i) =>
                   line.text === "" ? (
-                    <div key={i} className="pipeline-line h-2" style={{ animationDelay: `${0.5 + i * 0.13}s` }} />
+                    <div key={i} className="pipeline-line h-2" style={{ animationDelay: `${PANEL_APPEAR + i * 0.11}s` }} />
                   ) : (
                     <div
                       key={i}
                       className={`pipeline-line flex items-center justify-between gap-3 ${line.cls}`}
-                      style={{ animationDelay: `${0.5 + i * 0.13}s` }}
+                      style={{ animationDelay: `${PANEL_APPEAR + i * 0.11}s` }}
                     >
                       <span>{line.text}</span>
                       {line.ok && <span className="text-emerald-400 flex-shrink-0 text-[11px]">✓</span>}
@@ -235,7 +240,7 @@ function PipelinePanel() {
                 )}
                 <div
                   className="pipeline-line flex items-center gap-1 pt-1"
-                  style={{ animationDelay: `${0.5 + PIPELINE_LINES.length * 0.13}s` }}
+                  style={{ animationDelay: `${PANEL_APPEAR + PIPELINE_LINES.length * 0.11}s` }}
                 >
                   <span className="text-ink-600">$ </span>
                   <span className="inline-block w-[7px] h-[14px] bg-amber/60 animate-pulse" />
@@ -269,10 +274,10 @@ export default function Hero() {
 
       gsap.timeline({ defaults: { ease: "power3.out" } })
         .to("[data-hero='name']",  { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5 })
-        .to("[data-hero='desc']",  { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55 }, 1.62)
-        .to("[data-hero='stack']", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5  }, 1.74)
-        .to("[data-hero='cta']",   { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5  }, 1.86)
-        .to("[data-hero='panel']", { opacity: 1, x: 0, y: 0, filter: "blur(0px)", duration: 0.8 }, 1.62);
+        .to("[data-hero='desc']",  { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5  }, 0.7)
+        .to("[data-hero='stack']", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.45 }, 0.82)
+        .to("[data-hero='cta']",   { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.45 }, 0.92)
+        .to("[data-hero='panel']", { opacity: 1, x: 0, y: 0, filter: "blur(0px)", duration: PANEL_DUR }, PANEL_DELAY);
 
       if (!reduce) {
         // — Parallax on scroll: bg lags behind, panel slightly —
