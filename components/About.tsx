@@ -53,20 +53,20 @@ export default function About() {
 
                 <div className="mt-7 space-y-5 text-ink-300 leading-relaxed">
                   <p>
-                    Hola, soy Izan, <span className="text-ink-100 font-medium">Backend Developer especializado en IA y automatización</span>.
-                    Trabajo en el cruce entre código, datos y necesidades reales. No me interesan los modelos aislados;
-                    me interesa integrarlos correctamente en sistemas que funcionen en producción.
+                    Hola, soy Izan, <span className="text-ink-100 font-medium">AI Engineer y Backend Developer</span> con base en Gandía, Valencia.
                   </p>
                   <p>
-                    Integro modelos en arquitecturas backend reales: diseño el pipeline, construyo la API,
-                    defino la persistencia y lo orquesto todo con <span className="text-ink-100">Docker Compose</span>.
-                    Cuando el problema lo requiere, diseño agentes con <span className="text-amber font-medium">LangGraph</span>:
-                    pipelines de nodos independientes donde el LLM tiene un rol concreto en cada paso, no control total sobre el flujo.
+                    Llegué aquí desde <span className="text-ink-100">DAM</span> y la <span className="text-ink-100">Especialización en IA y Big Data</span>,
+                    completada con la <span className="text-ink-100">Machine Learning Specialization de Stanford / DeepLearning.AI</span>.
+                    El año pasado en <span className="text-amber font-medium">TESI</span> llevé esa formación a producción: diseñé y operé un pipeline
+                    de audio con LLMs que reemplazó un proceso 100% manual. Ahí aprendí lo que separa un prototipo de un
+                    sistema real: la persistencia, la observabilidad y el coste operativo.
                   </p>
                   <p>
-                    Trabajo principalmente con <span className="text-amber font-medium">Python</span> tanto en backend como en IA aplicada,
-                    pero donde más cómodo me siento es llevando una idea hasta un sistema completo:
-                    desde el procesamiento y la lógica hasta la API, la persistencia y la entrega final a producto.
+                    Hoy mi stack es <span className="text-amber font-medium">Python, FastAPI, LangGraph, Ollama, ChromaDB y Docker</span>.
+                    Diseño agentes donde el LLM razona pero no orquesta, monto la persistencia desde el día uno y opero
+                    con coste de API medido. Busco equipo donde diseñar e implementar sistemas de IA con impacto real,
+                    remoto en España o híbrido en Valencia.
                   </p>
                 </div>
               </div>
