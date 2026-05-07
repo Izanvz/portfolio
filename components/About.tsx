@@ -12,7 +12,7 @@ const proof = [
   },
   {
     title: "Local-first por elección, no por dogma",
-    desc: "Desarrollo con modelos locales porque prefiero no incurrir en costes hasta que hay producto real. La arquitectura está diseñada para que cambiar a OpenAI, Claude o cualquier otra API sea cuestión de una línea de configuración.",
+    desc: "Desarrollo con modelos locales porque prefiero no incurrir en costes hasta que hay producto real. La arquitectura está diseñada para que cambiar a OpenAI, Mistral o cualquier otra API sea cuestión de una línea de configuración.",
   },
 ];
 
